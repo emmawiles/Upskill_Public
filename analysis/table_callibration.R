@@ -7,6 +7,8 @@ library(stargazer)
 library(lfe)
 library(magrittr)
 library(msm)
+library(lmtest)
+library(sandwich)
 
 df <- read.csv("../computed_objects/experimental_data.csv") %>% mutate(treatment = as.factor(treatment))
 
@@ -95,7 +97,7 @@ JJHmisc::AddTableNote(s, out.file, note)
 
 
 
-treatment_effects <- sapply(model_list, function(model) {
+treatment_effects <- sapply(mods, function(model) {
   coefs <- broom::tidy(model, conf.int = TRUE)
   treatment_row <- coefs[coefs$term == "treatment1", ]
   c(est = treatment_row$estimate, 
@@ -136,39 +138,6 @@ g<- ggplot(df.plot, aes(y = model, x = est)) +
   geom_errorbarh(aes(xmin = est - std.error*1.96, xmax = est + std.error*1.96), height = 0.1) +
   labs(y = "", x = "Treatment effect, in percentage points") +
   theme_minimal() #+
-  #theme(axis.text.y = element_text(face = "bold"))
 
-JJHmisc::writeImage(g,
-                    "callibration_te",
-                    width = 6, 
-                    height = 4.5,
-                    path = "../writeup/plots/"
-)
-
-
-g <- ggplot(df.plot, 
-       aes(y = model, x = mean_value, fill = group, width = 0.6)
-           ) +
-  geom_bar(stat = "identity", color = "black", position = position_dodge(width = c(0,1.6))) +
-  geom_vline(xintercept = 0, linetype = "solid", color = "darkgrey", size = 0.75) +
-  geom_errorbarh(
-    data = df.plot, 
-    aes(xmin = ci.lower, xmax = ci.upper),
-    height = 0.1
-  ) +
-  scale_fill_manual(
-    values = c("mean_control" = "white", "mean_treatment" = "grey35"),
-    labels = c("Control", "Treatment")
-  ) + xlim(0, 100) +
-  labs(y = "", x = "Confidence that GPT-4 can correctly answer") +
-  theme_minimal() +
-  theme(legend.position = "top", 
-        legend.title = element_blank())
-
-JJHmisc::writeImage(g,
-                    "callibration",
-                    width = 6, 
-                    height = 5,
-                    path = "../writeup/plots/"
-)
-
+ggsave("../writeup/plots/callibration_te.pdf", plot = g, width = 6, height = 4.5)
+ggsave("../writeup/plots/callibration_te.png", plot = g, width = 6, height = 4.5, dpi = 300)

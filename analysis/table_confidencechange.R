@@ -74,3 +74,48 @@ ct.1["treatment_armTreatment", "Pr(>|t|)"]
 ct.2["treatment_armTreatment", "Pr(>|t|)"]
 ct.3["treatment_armTreatment", "Pr(>|t|)"]
 
+out.file <- "../writeup/tables/professional_identity.tex"
+sink("/dev/null")
+s <- stargazer(
+  m.1, m.2, m.3,
+  type = "latex",
+  title = "Effects of GenAI on Self-Reported Capabilities and Professional Confidence, Before and After Experiment",
+  label = "tab:professional_identity",
+  dep.var.labels = c(
+    "$\\Delta$in Beliefs in Data Analytics Abilities",
+    "$\\Delta$in Confidence in Data Science Skills",
+    "$\\Delta$ in Confidence with GenAI"
+  ),
+  covariate.labels = c("GenAI Treatment Assigned (Trt)", "Constant"),
+  se = se.list,
+  omit.stat = c("adj.rsq", "ser", "f"),
+  no.space = TRUE,
+  star.cutoffs = c(0.10, 0.05, 0.01),
+  star.char = c("*", "**", "***"),
+  font.size = "small",
+  column.sep.width = "-5pt",
+  add.lines = list(
+    c(
+      "p-value (Trt)",
+      sprintf("%.3f", ct.1["treatment_armTreatment", "Pr(>|t|)"]),
+      sprintf("%.3f", ct.2["treatment_armTreatment", "Pr(>|t|)"]),
+      sprintf("%.3f", ct.3["treatment_armTreatment", "Pr(>|t|)"])
+    )
+  ),
+  header = FALSE
+)
+sink()
+
+note <- c(
+  "\\\\",
+  "\\begin{minipage}{\\textwidth}",
+  "{\\footnotesize \\emph{Notes}: ",
+  "This table analyzes the effect of treatment on self-reported capabilities and professional confidence before and after the experiment.",
+  "Column (1) measures change in beliefs about data analytics abilities, Column (2) measures change in confidence in data science skills, and Column (3) measures change in confidence when using GenAI.",
+  "Reported entries are coefficient estimates with two-sided 95\\% standard errors computed using Huber--White (HC0) robust variance.",
+  "Significance stars and p-values indicate two-sided tests using Huber--White (HC0) robust variance:",
+  "* p \\textless 0.10, ** p \\textless 0.05, *** p \\textless 0.01.",
+  "\\starlanguage}",
+  "\\end{minipage}"
+)
+JJHmisc::AddTableNote(s, out.file, note)

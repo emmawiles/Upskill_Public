@@ -44,7 +44,7 @@ get_treat_p <- function(m) {
 }
 
 
-mods <- list(m.1, m.2, m.3, m.4, m.5,)
+mods <- list(m.1, m.2, m.3, m.4, m.5)
 
 treat_p_row <- c(
   "P-value (Trt)",
@@ -133,7 +133,7 @@ JJHmisc::AddTableNote(stats, out.file, note)
 
 stargazer(m.11, m.12, m.13, m.14, m.15, type = "text")
 
-mods <- list(m.11, m.12, m.13, m.14, m.15,)
+mods <- list(m.11, m.12, m.13, m.14, m.15)
 
 treat_p_row <- c(
   "P-value (Trt)",

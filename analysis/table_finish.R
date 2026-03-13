@@ -6,6 +6,8 @@ library(lfe)
 library(magrittr)
 library(msm)
 library(forcats)
+library(lmtest)
+library(sandwich)
 
 df <- read.csv("../computed_objects/experimental_data_all.csv") %>%
   mutate(finished_stats = ifelse(!is.na(StatsMCCorrectnessPercent) & !is.na(StatsTaskOrder),1,ifelse(!is.na(StatsTaskOrder),0,NA)),

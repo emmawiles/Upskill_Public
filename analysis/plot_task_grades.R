@@ -125,11 +125,8 @@ g<- ggplot(df.plot, aes(y = model, x = mean_value, fill = group)) +
         panel.grid.minor = element_blank()
   ) + coord_flip()
 
-JJHmisc::writeImage(g, 
-                    "grades",
-                    width = 6.5, 
-                    height = 3.5, 
-                    path = "../writeup/plots/")
+ggsave("../writeup/plots/grades.pdf", plot = g, width = 6.5, height = 3.5)
+ggsave("../writeup/plots/grades.png", plot = g, width = 6.5, height = 3.5, dpi = 300)
 
 
 ## With distribution
@@ -330,9 +327,5 @@ g <- ggplot(df.plot,
 # Save
 # ============================
 
-JJHmisc::writeImage(g,
-                    "grades_dist",
-                    width = 6.5,
-                    height = 3.5,
-                    path = "../writeup/plots/")
-
+ggsave("../writeup/plots/grades_dist.pdf", plot = g, width = 6.5, height = 3.5)
+ggsave("../writeup/plots/grades_dist.png", plot = g, width = 6.5, height = 3.5, dpi = 300)

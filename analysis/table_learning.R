@@ -266,11 +266,8 @@ geom_errorbarh(
   aes(xmin = ci.lower.total, xmax = ci.upper.total), height = 0.5, position = position_dodge(0.8)
 )
 
-JJHmisc::writeImage(g, 
-                    "learning",
-                    width = 6.5, 
-                    height = 4, 
-                    path = "../writeup/plots/")
+ggsave("../writeup/plots/learning.pdf", plot = g, width = 6.5, height = 4)
+ggsave("../writeup/plots/learning.png", plot = g, width = 6.5, height = 4, dpi = 300)
 
 
 ## With Distribution
@@ -360,8 +357,5 @@ geom_point(data = df.raw %>% filter(!is.na(value)),
     legend.title = element_blank(),
     panel.grid.major = element_blank()
   )
-JJHmisc::writeImage(g, 
-                    "learning_dist",
-                    width = 6.5, 
-                    height = 4, 
-                    path = "../writeup/plots/")
+ggsave("../writeup/plots/learning_dist.pdf", plot = g, width = 6.5, height = 4)
+ggsave("../writeup/plots/learning_dist.png", plot = g, width = 6.5, height = 4, dpi = 300)

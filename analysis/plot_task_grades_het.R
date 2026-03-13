@@ -1,6 +1,10 @@
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(broom)
+library(forcats)
+library(lmtest)
+library(sandwich)
 library(readr)
 
 df <- read.csv("../computed_objects/experimental_data.csv")
@@ -75,13 +79,8 @@ g <- ggplot(df.plot2, aes(y = code, x = mean_value, fill = group)) +
     limits = c(-1, 0.2)
   )
 
-JJHmisc::writeImage(
-  g,
-  "grades_by_code",
-  width = 6.5,
-  height = 4.5,
-  path = "../writeup/plots/"
-)
+ggsave("../writeup/plots/grades_by_code.pdf", plot = g, width = 6.5, height = 4.5)
+ggsave("../writeup/plots/grades_by_code.png", plot = g, width = 6.5, height = 4.5, dpi = 300)
 
 # =====================================================
 # RAW DISTRIBUTION OVERLAY VERSION
@@ -291,9 +290,5 @@ g.dist <- ggplot(df.plot.dist,
 # Save
 # ============================
 
-JJHmisc::writeImage(g.dist,
-                    "grades_by_code_dist",
-                    width = 6.5,
-                    height = 4.5,
-                    path = "../writeup/plots/")
-
+ggsave("../writeup/plots/grades_by_code_dist.pdf", plot = g.dist, width = 6.5, height = 4.5)
+ggsave("../writeup/plots/grades_by_code_dist.png", plot = g.dist, width = 6.5, height = 4.5, dpi = 300)
