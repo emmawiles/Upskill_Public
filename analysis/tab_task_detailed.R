@@ -8,6 +8,7 @@ library(msm)
 library(forcats)
 library(sandwich)
 library(lmtest)
+library(JJHmisc)
 
 df <- read.csv("../computed_objects/experimental_data.csv")
 df$know_code <- fct_relevel(df$know_code, "No coding experience")

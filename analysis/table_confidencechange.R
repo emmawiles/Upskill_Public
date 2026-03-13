@@ -4,6 +4,7 @@ library(lfe)
 library(sandwich)
 library(lmtest)
 library(haven)
+library(JJHmisc)
 
 table_path <- "../writeup/tables/professional_identity.tex"
 

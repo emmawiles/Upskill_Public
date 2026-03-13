@@ -9,6 +9,7 @@ library(magrittr)
 library(msm)
 library(lmtest)
 library(sandwich)
+library(JJHmisc)
 
 plot_path <- "../writeup/plots/callibration_te.pdf"
 table_path <- "../writeup/callibration.tex"
@@ -56,11 +57,11 @@ treat_p_row <- c(
   }))
 )
 
-stargazer(mods[[1]], mods[[2]], mods[[3]], mods[[4]], mods[[5]], mods[[6]], mods[[7]], type = "text")
+stargazer(m1, m2, m3, m4, m5, m6, m7, type = "text")
 mean_controls
 out.file <- table_path
 sink("/dev/null")
-s <- stargazer(mods[[1]], mods[[2]], mods[[3]], mods[[4]], mods[[5]], mods[[6]], mods[[7]],
+s <- stargazer(m1, m2, m3, m4, m5, m6, m7,
                title = "Effects of AI treatment to post experiment questions about GPT-4's capabilities",
                label = "tab:callibration",
                column.labels = rep(" ``Can GPT-4 answer [this question] correctly?''"),

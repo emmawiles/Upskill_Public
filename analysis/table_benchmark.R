@@ -9,6 +9,7 @@ library(forcats)
 library(sandwich)
 library(lmtest)
 library(haven)
+library(JJHmisc)
 
 df <- read_dta("../data/complete_data_DS.dta")
 df$treatment_arm <- as.factor(df$treatment_arm)

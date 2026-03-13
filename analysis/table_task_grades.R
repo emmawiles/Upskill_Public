@@ -8,6 +8,7 @@ library(msm)
 library(forcats)
 library(lmtest)
 library(sandwich)
+library(JJHmisc)
 
 
 df <- read.csv("../computed_objects/experimental_data.csv") %>% filter(treatment_arm != 2)
@@ -404,5 +405,4 @@ ggplot(results, aes(x = Quantile, y = Coefficient, color = Outcome)) +
        color = "Outcome") +
   scale_x_continuous(breaks = seq(0, 1, by = 0.1)) +  # Set x-axis breaks
   theme_minimal()
-
 

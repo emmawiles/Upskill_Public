@@ -1,11 +1,10 @@
 library(dplyr)
-library(tidyr)
-library(ggplot2)
 library(stargazer)
 library(lfe)
-library(magrittr)
-library(msm)
 library(forcats)
+library(sandwich)
+library(lmtest)
+library(JJHmisc)
 
 df <- read.csv("../computed_objects/experimental_data.csv")
 df$know_code <- fct_relevel(df$know_code, "No coding experience")
@@ -174,5 +173,4 @@ note <- c("\\\\",
           \\starlanguage}",
           "\\end{minipage}")
 JJHmisc::AddTableNote(stats, out.file, note)
-
 

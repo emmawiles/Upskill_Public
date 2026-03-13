@@ -5,20 +5,17 @@ library(tidyr)
 library(ggplot2)
 library(stargazer)
 library(lfe)
+library(sandwich)
+library(lmtest)
+library(JJHmisc)
 
 df <- read.csv("../computed_objects/experimental_data_all.csv")
 
-# First pass
-# TasksComplete
-# TimeTakenStats, TimeTakenCoding, TimeTakenPS
-
-m.finish <- felm(TasksComplete~treatment+ europe + female + low.tenure + native.english, df)
 m.timeS <- felm(minutesStats~treatment + europe + female + low.tenure + native.english, df %>% filter(!is.na(StatsMCCorrectnessPercent)))
 m.timePS <- felm(minutesPS~treatment + europe + female + low.tenure + native.english, df %>% filter(!is.na(ps_score)))
 m.timeC <- felm(minutesCoding~treatment + europe + female + low.tenure + native.english, df %>% filter(!is.na(CodingProcessGradePercent)))
-stargazer(m.finish, m.timeS, m.timePS, m.timeC, type = "text")
+stargazer(m.timeS, m.timePS, m.timeC, type = "text")
 
-mean_finish_control <- mean(df$TasksComplete[df$treatment == 0], na.rm = TRUE)
 mean_timeS_control <- mean(df$minutesStats[df$treatment == 0], na.rm = TRUE)
 mean_timePS_control <- mean(df$minutesPS[df$treatment == 0], na.rm = TRUE)
 mean_timeC_control <- mean(df$minutesCoding[df$treatment == 0], na.rm = TRUE)

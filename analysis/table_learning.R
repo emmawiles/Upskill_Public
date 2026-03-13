@@ -10,6 +10,7 @@ library(lfe)
 library(lmtest)
 library(broom)
 library(car)
+library(JJHmisc)
 
 df <- read.csv("../computed_objects/experimental_data.csv") %>% filter(treatment_arm != 2)
 
