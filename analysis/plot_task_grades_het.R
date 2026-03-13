@@ -80,7 +80,6 @@ g <- ggplot(df.plot2, aes(y = code, x = mean_value, fill = group)) +
   )
 
 ggsave("../writeup/plots/grades_by_code.pdf", plot = g, width = 6.5, height = 4.5)
-ggsave("../writeup/plots/grades_by_code.png", plot = g, width = 6.5, height = 4.5, dpi = 300)
 
 # =====================================================
 # RAW DISTRIBUTION OVERLAY VERSION
@@ -291,4 +290,3 @@ g.dist <- ggplot(df.plot.dist,
 # ============================
 
 ggsave("../writeup/plots/grades_by_code_dist.pdf", plot = g.dist, width = 6.5, height = 4.5)
-ggsave("../writeup/plots/grades_by_code_dist.png", plot = g.dist, width = 6.5, height = 4.5, dpi = 300)

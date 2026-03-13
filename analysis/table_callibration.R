@@ -10,49 +10,57 @@ library(msm)
 library(lmtest)
 library(sandwich)
 
-df <- read.csv("../computed_objects/experimental_data.csv") %>% mutate(treatment = as.factor(treatment))
+plot_path <- "../writeup/plots/callibration_te.pdf"
+table_path <- "../writeup/callibration.tex"
+label_text <- c(
+  "Q1: Develop an HTML page with JavaScript\n and canvas to draw a US flag that rotates\n 90 clockwise each time it is clicked.\n (GPT-4 can do)",
+  "Q2: Based on the following data, which \n cities have an even-numbered population? \n (GPT-4 cannot do) ",
+  "Q3: Splitting a $10 bill evenly based on \n items with different prices  \n (GPT-4 cannot do)",
+  "Q4: Help on crossword clues \n (GPT-4 can do)",
+  "Q5: Who lost the Super Bowl two years \n after Pan-Am filed for bankruptcy? \n (GPT-4 can do)",
+  "Q6: Write out the word ''hello'' as an \n ascii art drawing with # and _  \n (GPT-4 cannot do) ",
+  "Q7: What is the best next move for O \n in the following game of Tic Tac Toe?  \n (GPT-4 cannot do) "
+)
 
+df <- read.csv("../computed_objects/experimental_data.csv") %>%
+  mutate(treatment = as.factor(treatment))
 
-m1 <- felm(GenAICalPost1_1 ~ treatment + europe + female + low.tenure + native.english, df)
-m2 <- felm(GenAICalPost2_1 ~ treatment + europe + female + low.tenure + native.english, df)
-m3 <- felm(GenAICalPost3_1 ~ treatment + europe + female + low.tenure + native.english, df)
-m4 <- felm(GenAICalPost4_1 ~ treatment + europe + female + low.tenure + native.english, df)
-m5 <- felm(GenAICalPost5_1 ~ treatment + europe + female + low.tenure + native.english, df)
-m6 <- felm(GenAICalPost6_1 ~ treatment + europe + female + low.tenure + native.english, df)
-m7 <- felm(GenAICalPost7_1 ~ treatment + europe + female + low.tenure + native.english, df)
-
-
-num_vars <- 7
-# Create a vector to store the mean values
-mean_controls <- numeric(num_vars)
-
-# Loop through each variable number and calculate the mean for control group
-for (i in 1:num_vars) {
-  var_name <- paste0("GenAICalPost", i, "_1")
-  mean_controls[i] <- mean(df[[var_name]][df$treatment == 0], na.rm = TRUE)
-}
-
-get_treat_p <- function(m) {
-  ct <- coeftest(m, vcov = vcovHC(m, type = "HC0"))
-  rn <- rownames(ct)
-  idx <- grep("treat", rn, ignore.case = TRUE)[1]
-  if (is.na(idx)) return(NA_real_)
-  unname(ct[idx, "Pr(>|t|)"])
-}
-
+m1 <- felm(GenAICalPost1_1 ~ treatment + europe + female + low.tenure + native.english, data = df)
+m2 <- felm(GenAICalPost2_1 ~ treatment + europe + female + low.tenure + native.english, data = df)
+m3 <- felm(GenAICalPost3_1 ~ treatment + europe + female + low.tenure + native.english, data = df)
+m4 <- felm(GenAICalPost4_1 ~ treatment + europe + female + low.tenure + native.english, data = df)
+m5 <- felm(GenAICalPost5_1 ~ treatment + europe + female + low.tenure + native.english, data = df)
+m6 <- felm(GenAICalPost6_1 ~ treatment + europe + female + low.tenure + native.english, data = df)
+m7 <- felm(GenAICalPost7_1 ~ treatment + europe + female + low.tenure + native.english, data = df)
 
 mods <- list(m1, m2, m3, m4, m5, m6, m7)
 
-treat_p_row <- c(
-  "P-value (Trt)",
-  sprintf("%.3f", sapply(mods, get_treat_p))
+mean_controls <- c(
+  mean(df$GenAICalPost1_1[df$treatment == 0], na.rm = TRUE),
+  mean(df$GenAICalPost2_1[df$treatment == 0], na.rm = TRUE),
+  mean(df$GenAICalPost3_1[df$treatment == 0], na.rm = TRUE),
+  mean(df$GenAICalPost4_1[df$treatment == 0], na.rm = TRUE),
+  mean(df$GenAICalPost5_1[df$treatment == 0], na.rm = TRUE),
+  mean(df$GenAICalPost6_1[df$treatment == 0], na.rm = TRUE),
+  mean(df$GenAICalPost7_1[df$treatment == 0], na.rm = TRUE)
 )
 
-stargazer(m1, m2, m3, m4, m5, m6, m7, type = "text")
+treat_p_row <- c(
+  "P-value (Trt)",
+  sprintf("%.3f", sapply(mods, function(model) {
+    ct <- coeftest(model, vcov = vcovHC(model, type = "HC0"))
+    rn <- rownames(ct)
+    idx <- grep("treat", rn, ignore.case = TRUE)[1]
+    if (is.na(idx)) return(NA_real_)
+    unname(ct[idx, "Pr(>|t|)"])
+  }))
+)
+
+stargazer(mods[[1]], mods[[2]], mods[[3]], mods[[4]], mods[[5]], mods[[6]], mods[[7]], type = "text")
 mean_controls
-out.file <- "../writeup/callibration.tex" 
+out.file <- table_path
 sink("/dev/null")
-s <- stargazer(m1, m2, m3, m4, m5, m6, m7,
+s <- stargazer(mods[[1]], mods[[2]], mods[[3]], mods[[4]], mods[[5]], mods[[6]], mods[[7]],
                title = "Effects of AI treatment to post experiment questions about GPT-4's capabilities",
                label = "tab:callibration",
                column.labels = rep(" ``Can GPT-4 answer [this question] correctly?''"),
@@ -76,7 +84,13 @@ s <- stargazer(m1, m2, m3, m4, m5, m6, m7,
                     sprintf("%.2f", mean_controls[7])
                   ),
                 c("P-value (Trt)",
-                    sprintf("%.3f", sapply(mods, get_treat_p))
+                    sprintf("%.3f", sapply(mods, function(model) {
+                      ct <- coeftest(model, vcov = vcovHC(model, type = "HC0"))
+                      rn <- rownames(ct)
+                      idx <- grep("treat", rn, ignore.case = TRUE)[1]
+                      if (is.na(idx)) return(NA_real_)
+                      unname(ct[idx, "Pr(>|t|)"])
+                    }))
                   )
                 ),
                 header = FALSE,
@@ -110,19 +124,8 @@ treatment_effects %<>% mutate(mean_treatment = mean_control + est,
                               ci.lower = mean_treatment - 1.96*std.error,
                               ci.upper = mean_treatment + 1.96*std.error)
 
-custom_labels <- c(
-  "Q1: Develop an HTML page with JavaScript\n and canvas to draw a US flag that rotates\n 90 clockwise each time it is clicked.\n (GPT-4 can do)",
-  "Q2: Based on the following data, which \n cities have an even-numbered population? \n (GPT-4 cannot do) ",
-  "Q3: Splitting a $10 bill evenly based on \n items with different prices  \n (GPT-4 cannot do)",
-  "Q4: Help on crossword clues \n (GPT-4 can do)",
-  "Q5: Who lost the Super Bowl two years \n after Pan-Am filed for bankruptcy? \n (GPT-4 can do)",
-  "Q6: Write out the word ''hello'' as an \n ascii art drawing with # and _  \n (GPT-4 cannot do) ",
-  "Q7: What is the best next move for O \n in the following game of Tic Tac Toe?  \n (GPT-4 cannot do) "
-)
-
-treatment_effects$model <- custom_labels
-
-treatment_effects$model <- factor(custom_labels, levels = rev(custom_labels))
+treatment_effects$model <- label_text
+treatment_effects$model <- factor(label_text, levels = rev(label_text))
 
 df.plot <- pivot_longer(
   treatment_effects,
@@ -139,5 +142,4 @@ g<- ggplot(df.plot, aes(y = model, x = est)) +
   labs(y = "", x = "Treatment effect, in percentage points") +
   theme_minimal() #+
 
-ggsave("../writeup/plots/callibration_te.pdf", plot = g, width = 6, height = 4.5)
-ggsave("../writeup/plots/callibration_te.png", plot = g, width = 6, height = 4.5, dpi = 300)
+ggsave(plot_path, plot = g, width = 6, height = 4.5)

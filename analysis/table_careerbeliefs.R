@@ -7,6 +7,8 @@ library(sandwich)
 library(lmtest)
 library(haven)
 
+table_path <- "../writeup/tables/belief_chatgpt.tex"
+
 df <- read_dta("../data/complete_data_DS.dta")
 
 df$treatment_arm <- as.factor(df$treatment_arm)
@@ -47,24 +49,26 @@ df <- df %>%
 # regressions
 m.1 <- felm(PSI_Change ~ treatment_arm, df)
 m.2 <- felm(PE_Change ~ treatment_arm, df)
+mods <- list(m.1, m.2)
 
-# robust SEs
-ct.1 <- coeftest(m.1, vcov = vcovHC(m.1, type = "HC0"))
-ct.2 <- coeftest(m.2, vcov = vcovHC(m.2, type = "HC0"))
+se.list <- list(
+  sqrt(diag(vcovHC(m.1, type = "HC0"))),
+  sqrt(diag(vcovHC(m.2, type = "HC0")))
+)
+p_values <- c(
+  coeftest(m.1, vcov = vcovHC(m.1, type = "HC0"))["treatment_armTreatment", "Pr(>|t|)"],
+  coeftest(m.2, vcov = vcovHC(m.2, type = "HC0"))["treatment_armTreatment", "Pr(>|t|)"]
+)
 
 stargazer(
   m.1, m.2,
   type = "text",
-  se = list(
-    sqrt(diag(vcovHC(m.1, type = "HC0"))),
-    sqrt(diag(vcovHC(m.2, type = "HC0")))
-  )
+  se = se.list
 )
 
-ct.1["treatment_armTreatment", "Pr(>|t|)"]
-ct.2["treatment_armTreatment", "Pr(>|t|)"]
+p_values
 
-out.file <- "../writeup/tables/belief_chatgpt.tex"
+out.file <- table_path
 sink("/dev/null")
 s <- stargazer(
   m.1, m.2,
@@ -76,10 +80,7 @@ s <- stargazer(
     "$\\Delta$ in Beliefs about ChatGPT's Usefullness for Practicality \\& Effectiveness"
   ),
   covariate.labels = c("GenAI Treatment Assigned (Trt)", "Constant"),
-  se = list(
-    sqrt(diag(vcovHC(m.1, type = "HC0"))),
-    sqrt(diag(vcovHC(m.2, type = "HC0")))
-  ),
+  se = se.list,
   omit.stat = c("adj.rsq", "ser", "f"),
   no.space = TRUE,
   star.cutoffs = c(0.10, 0.05, 0.01),
@@ -89,8 +90,8 @@ s <- stargazer(
   add.lines = list(
     c(
       "p-value (Trt)",
-      sprintf("%.3f", ct.1["treatment_armTreatment", "Pr(>|t|)"]),
-      sprintf("%.3f", ct.2["treatment_armTreatment", "Pr(>|t|)"])
+      sprintf("%.3f", p_values[1]),
+      sprintf("%.3f", p_values[2])
     )
   ),
   header = FALSE

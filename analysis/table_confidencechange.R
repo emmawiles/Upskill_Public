@@ -5,6 +5,8 @@ library(sandwich)
 library(lmtest)
 library(haven)
 
+table_path <- "../writeup/tables/professional_identity.tex"
+
 df <- read_dta("../data/complete_data_DS.dta")
 
 # Keep control and treatment only
@@ -49,32 +51,25 @@ m.3 <- felm(delta_genai_conf ~ treatment_arm, df)
 
 mods <- list(m.1, m.2, m.3)
 
-# ---- Robust SE ----
-
 se.list <- list(
-  sqrt(diag(vcovHC(m.1, type="HC0"))),
-  sqrt(diag(vcovHC(m.2, type="HC0"))),
-  sqrt(diag(vcovHC(m.3, type="HC0")))
+  sqrt(diag(vcovHC(m.1, type = "HC0"))),
+  sqrt(diag(vcovHC(m.2, type = "HC0"))),
+  sqrt(diag(vcovHC(m.3, type = "HC0")))
 )
 stargazer(
   m.1, m.2, m.3,
   type = "text",
-  se = list(
-    sqrt(diag(vcovHC(m.1, type = "HC0"))),
-    sqrt(diag(vcovHC(m.2, type = "HC0"))),
-    sqrt(diag(vcovHC(m.3, type="HC0")))
-  )
+  se = se.list
 )
 
-ct.1 <- coeftest(m.1, vcov = vcovHC(m.1, type = "HC0"))
-ct.2 <- coeftest(m.2, vcov = vcovHC(m.2, type = "HC0"))
-ct.3 <- coeftest(m.3, vcov = vcovHC(m.3, type = "HC0"))
+p_values <- c(
+  coeftest(m.1, vcov = vcovHC(m.1, type = "HC0"))["treatment_armTreatment", "Pr(>|t|)"],
+  coeftest(m.2, vcov = vcovHC(m.2, type = "HC0"))["treatment_armTreatment", "Pr(>|t|)"],
+  coeftest(m.3, vcov = vcovHC(m.3, type = "HC0"))["treatment_armTreatment", "Pr(>|t|)"]
+)
+p_values
 
-ct.1["treatment_armTreatment", "Pr(>|t|)"]
-ct.2["treatment_armTreatment", "Pr(>|t|)"]
-ct.3["treatment_armTreatment", "Pr(>|t|)"]
-
-out.file <- "../writeup/tables/professional_identity.tex"
+out.file <- table_path
 sink("/dev/null")
 s <- stargazer(
   m.1, m.2, m.3,
@@ -97,9 +92,9 @@ s <- stargazer(
   add.lines = list(
     c(
       "p-value (Trt)",
-      sprintf("%.3f", ct.1["treatment_armTreatment", "Pr(>|t|)"]),
-      sprintf("%.3f", ct.2["treatment_armTreatment", "Pr(>|t|)"]),
-      sprintf("%.3f", ct.3["treatment_armTreatment", "Pr(>|t|)"])
+      sprintf("%.3f", p_values[1]),
+      sprintf("%.3f", p_values[2]),
+      sprintf("%.3f", p_values[3])
     )
   ),
   header = FALSE

@@ -126,23 +126,9 @@ g<- ggplot(df.plot, aes(y = model, x = mean_value, fill = group)) +
   ) + coord_flip()
 
 ggsave("../writeup/plots/grades.pdf", plot = g, width = 6.5, height = 3.5)
-ggsave("../writeup/plots/grades.png", plot = g, width = 6.5, height = 3.5, dpi = 300)
 
 
 ## With distribution
-library(tidyr)
-library(dplyr)
-library(broom)
-library(ggplot2)
-library(forcats)
-library(lmtest)
-library(sandwich)
-library(magrittr)
-
-# ============================
-# Load data
-# ============================
-
 df <- read.csv("../computed_objects/experimental_data.csv")
 
 df$know_code <- fct_relevel(df$know_code, "No coding experience")
@@ -328,4 +314,3 @@ g <- ggplot(df.plot,
 # ============================
 
 ggsave("../writeup/plots/grades_dist.pdf", plot = g, width = 6.5, height = 3.5)
-ggsave("../writeup/plots/grades_dist.png", plot = g, width = 6.5, height = 3.5, dpi = 300)

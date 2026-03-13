@@ -267,7 +267,6 @@ geom_errorbarh(
 )
 
 ggsave("../writeup/plots/learning.pdf", plot = g, width = 6.5, height = 4)
-ggsave("../writeup/plots/learning.png", plot = g, width = 6.5, height = 4, dpi = 300)
 
 
 ## With Distribution
@@ -358,4 +357,3 @@ geom_point(data = df.raw %>% filter(!is.na(value)),
     panel.grid.major = element_blank()
   )
 ggsave("../writeup/plots/learning_dist.pdf", plot = g, width = 6.5, height = 4)
-ggsave("../writeup/plots/learning_dist.png", plot = g, width = 6.5, height = 4, dpi = 300)
