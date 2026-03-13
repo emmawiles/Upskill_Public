@@ -9,7 +9,7 @@ library(stargazer)
 library(lfe)
 library(lmtest)
 library(broom)
-library(BayesFactor)
+library(car)
 
 df <- read.csv("../computed_objects/experimental_data.csv") %>% filter(treatment_arm != 2)
 
@@ -27,7 +27,7 @@ stargazer(m.1, m.2, m.3, m.4, m.5, type = "text",
                     sqrt(diag(vcovHC(m.3, type = "HC0"))),
                     sqrt(diag(vcovHC(m.4, type = "HC0"))),
                     sqrt(diag(vcovHC(m.5, type = "HC0")))))
-library(car)
+
 model <- lm(cbind(DSKnowledgeQ1Grade, DSKnowledgeQ2Grade, DSKnowledgeQ3Grade, DSKnowledgeQ4Grade, DSKnowledgeQ5Grade) ~ treatment, data = df)
 linearHypothesis(model, hypothesis.matrix = "treatment = 0")
 
@@ -133,34 +133,6 @@ treatment_effects <- sapply(model_list, function(model) {
   c(est = treatment_row$estimate, 
     std.error = treatment_row$std.error)
 })
-
-#Bayes Factor
-results <- list()
-
-# Iterate through each variable in vars
-for (var in vars) {
-  # Filter out NAs for the current variable
-  temp <- df %>% 
-    filter(!is.na(.data[[var]])) %>% 
-    select(treatment, !!sym(var))
-  
-  # Extract numeric vectors for treatment and control groups
-  treat <- temp %>% filter(treatment == 1) %>% pull(!!sym(var))
-  control <- temp %>% filter(treatment == 0) %>% pull(!!sym(var))
-  
-  # Perform Bayesian t-test
-  bf <- ttestBF(x = treat, y = control)
-  
-  # Store Bayes Factor and variable name in the results list
-  results[[var]] <- list(
-    variable = var,
-    bayes_factor = exp(bf@bayesFactor[["bf"]])  # Extract numeric Bayes Factor
-  )
-}
-
-# Convert results list to a data frame for easier readability
-bayes <- do.call(rbind, lapply(results, as.data.frame))
-
 
 treatment_effects <- sapply(model_list, function(model) {
   # Use broom::tidy to get a dataframe of term, estimate, and standard error
