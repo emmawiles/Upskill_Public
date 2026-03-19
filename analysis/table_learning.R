@@ -1,8 +1,11 @@
 library(dplyr)
+library(tidyr)
+library(ggplot2)
 library(lmtest)
 library(sandwich)
 library(stargazer)
 library(haven)
+library(broom)
 #for learning_robustness
 
 df <- read.csv("../computed_objects/experimental_data.csv") %>% filter(treatment_arm != 2)
@@ -170,32 +173,7 @@ note <- c("\\\\",
 
 JJHmisc::AddTableNote(s, out.file, note)
 
-#Bayes Factor
-results <- list()
 
-# Iterate through each variable in vars
-for (var in vars) {
-  # Filter out NAs for the current variable
-  temp <- df %>% 
-    filter(!is.na(.data[[var]])) %>% 
-    select(treatment, !!sym(var))
-  
-  # Extract numeric vectors for treatment and control groups
-  treat <- temp %>% filter(treatment == 1) %>% pull(!!sym(var))
-  control <- temp %>% filter(treatment == 0) %>% pull(!!sym(var))
-  
-  # Perform Bayesian t-test
-  bf <- ttestBF(x = treat, y = control)
-  
-  # Store Bayes Factor and variable name in the results list
-  results[[var]] <- list(
-    variable = var,
-    bayes_factor = exp(bf@bayesFactor[["bf"]])  # Extract numeric Bayes Factor
-  )
-}
-
-# Convert results list to a data frame for easier readability
-bayes <- do.call(rbind, lapply(results, as.data.frame))
 
 treatment_effects <- sapply(model_list, function(model) {
   # Use broom::tidy to get a dataframe of term, estimate, and standard error
@@ -292,11 +270,10 @@ ggplot(df.plot2, aes(y = model, x = mean_value, fill = group)) +
     aes(xmin = ci.lower.total, xmax = ci.upper.total), height = 0.5, position = position_dodge(0.8)
   )
 
-JJHmisc::writeImage(g, 
-                    "learning",
-                    width = 6.5, 
-                    height = 4, 
-                    path = "../writeup/plots/")
+ggsave("../writeup/plots/learning.pdf",
+       plot = g,
+       width = 6.5,
+       height = 4)
 
 
 ## ploints on the plot
@@ -388,8 +365,7 @@ geom_point(data = df.raw %>% filter(!is.na(value)),
   )
 
 g
-JJHmisc::writeImage(g, 
-                    "learning_dist",
-                    width = 6.5, 
-                    height = 4, 
-                    path = "../writeup/plots/")
+ggsave("../writeup/plots/learning_dist.pdf",
+       plot = g,
+       width = 6.5,
+       height = 4)
