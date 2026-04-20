@@ -3,8 +3,11 @@ library(dplyr)
 library(tidyr)
 
 df <- read_dta("../data/complete_data_all.dta")
+df.completers <- read.csv("../computed_objects/experimental_data.csv") %>% 
+  select(c(ResponseId, PSMAEGradeAdjusted))
 
-# Calibration correctness summary used in downstream heterogeneity controls.
+df <- df %>% left_join(df.completers, "ResponseId")
+
 df_questions <- df %>%
   select(starts_with("GenAICalPre")) %>%
   mutate(across(everything(), ~ ifelse(is.na(.), mean(., na.rm = TRUE), .))) %>%
@@ -45,7 +48,7 @@ df <- df %>%
     minutesCoding = TimeTakenCoding / 60,
     dont_answer = ifelse(is.na(StatsMCCorrectnessScore), 1, 0),
     high_score = ifelse(GenAICalPre_all > 3, 1, 0),
-    ps_score = PSMAE_score_adjusted * -1, # not used for grading, only to know if they got a score on the ps task
+    ps_score = PSMAEGradeAdjusted * -1,
     StatsMCCorrectnessPercent = StatsMCCorrectnessScore / 34.5
   ) %>%
   filter(treatment_arm != "" | !is.na(treatment_arm)) %>%
