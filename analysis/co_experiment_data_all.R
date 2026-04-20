@@ -45,7 +45,7 @@ df <- df %>%
     minutesCoding = TimeTakenCoding / 60,
     dont_answer = ifelse(is.na(StatsMCCorrectnessScore), 1, 0),
     high_score = ifelse(GenAICalPre_all > 3, 1, 0),
-    ps_score = PSMAE_score_adjusted * -1,
+    ps_score = PSMAE_score_adjusted * -1, # not used for grading, only to know if they got a score on the ps task
     StatsMCCorrectnessPercent = StatsMCCorrectnessScore / 34.5
   ) %>%
   filter(treatment_arm != "" | !is.na(treatment_arm)) %>%
