@@ -1,0 +1,40 @@
+
+\begin{table}[!htbp] \centering 
+  \caption{Effect of AI treatment on workers' coding performance, relative to data scientists} 
+  \label{tab:grades_detail_coding} 
+\small 
+\begin{tabular}{@{\extracolsep{-5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & Data Cleaning & Data Correct & Merge \& Filter \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ GenAI Treatment Assigned (Trt) & 0.204$^{***}$ & 0.440$^{***}$ & 0.738$^{***}$ \\ 
+  & (0.032) & (0.059) & (0.061) \\ 
+ \hline \\[-1.8ex] 
+Mean Y in Control Group & -0.26 & -0.64 & -0.82 \\ 
+P-value (Trt) & 0.000 & 0.000 & 0.000 \\ 
+Observations & 300 & 300 & 300 \\ 
+R$^{2}$ & 0.129 & 0.172 & 0.343 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\end{tabular}
+\\
+\begin{minipage}{\textwidth}
+{\footnotesize \emph{Notes}: 
+           This table reports the effect of the treatment on the consultants performance on the coding task. 
+  The y-axis is the worker's binary grade on each set of actions in python, where 0 is a perfect score and -1 is the lowest possible score. 
+  The first outcome is whether or not the worker correctly cleaned the data.
+  The second outcome is whether or not they correctly handle nulls and duplicates.
+  The third outcome is whether or not they correctly merge and then filter a dataset. 
+  The sample includes all experimental participants who submitted something for grading on the prediction task.
+   Text of problems can be found in Appendix Section~ef{sec:tasks}.
+            Exact definition of grading for each problem can be found in Appendix Section~\ref{sec:tasks}.
+           All regressions include controls for gender, location, native english status, and low tenure.      Reported entries are coefficient estimates with two-sided 95\% standard errors computed using Huber--White (HC0) robust variance.
+            Significance stars and p-values indicate two-sided tests using Huber–White (HC0) robust variance:
+* p \textless 0.05, ** p \textless 0.01, *** p \textless 0.001.
+         
+\end{minipage}
+\end{table}

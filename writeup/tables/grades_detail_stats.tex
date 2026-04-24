@@ -1,0 +1,41 @@
+
+\begin{table}[!htbp] \centering 
+  \caption{Effect of AI treatment on workers' statistics performance, relative to data scientists} 
+  \label{tab:grades_detail_stats} 
+\small 
+\begin{tabular}{@{\extracolsep{-5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & Identifying Errors & Visual ML Questions & Probability Questions \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ GenAI Treatment Assigned (Trt) & 0.308$^{***}$ & 0.068$^{*}$ & 0.302$^{***}$ \\ 
+  & (0.038) & (0.032) & (0.050) \\ 
+ \hline \\[-1.8ex] 
+Mean Y in Control Group & -0.48 & -0.22 & -0.26 \\ 
+P-value (Trt) & 0.000 & 0.033 & 0.000 \\ 
+Observations & 330 & 330 & 330 \\ 
+R$^{2}$ & 0.183 & 0.035 & 0.109 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\end{tabular}
+\\
+\begin{minipage}{\textwidth}
+{\footnotesize \emph{Notes}: 
+           This table reports the effect of the treatment on the consultants grades on each step of the statistics task. 
+  Each outcome is the worker's grade on each set of problems, where 0 is a perfect score and -1 is the lowest possible score. 
+  The first outcome is the workers' score on a problem where they apply statistical metrics and interpret their graphs.
+   The second outcome is their score on questions where they look at data plotted and decide what types of classifier to use on it.
+    The third outcome is their score on probability questions.
+  The sample includes all experimental participants who submitted something for grading on the statistics task.
+   Text of problems can be found in Appendix Section~ef{sec:tasks}.
+            Exact definition of grading for each problem can be found in Appendix Section~\ref{sec:tasks}.
+            Reported entries are coefficient estimates with two-sided 95\% standard errors computed using Huber--White (HC0) robust variance.
+            Significance stars and p-values indicate two-sided tests using Huber–White (HC0) robust variance:
+* p \textless 0.05, ** p \textless 0.01, *** p \textless 0.001.
+           All regressions include controls for gender, location, native english status, and low tenure.
+          \starlanguage}
+\end{minipage}
+\end{table}
