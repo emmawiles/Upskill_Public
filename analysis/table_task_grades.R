@@ -126,6 +126,25 @@ m.ps1 <- felm(PSMAEGradeAdjusted~treatment*know_code, df)
 m.code1 <- felm(CodingProcessGradeRelativeNorm~treatment*know_code, df)
 stargazer(m.stats1, m.ps1, m.code1, type = "text")
 
+get_p_term <- function(m, pattern) {
+  ct <- coeftest(m, vcov = vcovHC(m, type = "HC0"))
+  rn <- rownames(ct)
+  idx <- grep(pattern, rn)
+  if (length(idx) == 0) return(NA_real_)
+  unname(ct[idx[1], "Pr(>|t|)"])
+}
+
+
+mods <- list( m.code1, m.stats1, m.ps1)
+
+p_trt <- sprintf("%.3f", sapply(mods, get_p_term, pattern = "^treatment$"))
+
+p_trt_basic <- sprintf("%.3f", 
+                       sapply(mods, get_p_term, pattern = "treatment:know_codeCoding basics"))
+
+p_trt_comp <- sprintf("%.3f", 
+                      sapply(mods, get_p_term, pattern = "treatment:know_codeCompetent coder"))
+
 out.file <- "../writeup/task_correct_het1.tex" 
 sink("/dev/null")
 s <- stargazer(  m.code1, m.stats1, m.ps1,
@@ -141,13 +160,16 @@ s <- stargazer(  m.code1, m.stats1, m.ps1,
                 star.char = c( "*", "**", "***"),
                 font.size = "small",
                 column.sep.width = "-5pt",
-                omit = c('Constant'),
                 add.lines = list(
                   c("Mean Y in Control Group", 
                     sprintf("%.2f",mean_control1), 
                     sprintf("%.2f",mean_control2), 
                     sprintf("%.2f",mean_control3)
-                  ) )  ,
+                  ),
+                  c("P-value (Trt)", p_trt),
+                  c("P-value (Trt x Coding basics)", p_trt_basic),
+                  c("P-value (Trt x Competent coder)", p_trt_comp)
+                ),
                 se = list(sqrt(diag(vcovHC(m.code1, type = "HC0"))),
                           sqrt(diag(vcovHC(m.stats1, type = "HC0"))),
                           sqrt(diag(vcovHC(m.ps1, type = "HC0")))),
@@ -175,6 +197,23 @@ m.ps2 <- felm(PSMAEGradeAdjusted~treatment*high_score, df)
 m.code2 <- felm(CodingProcessGradeRelativeNorm~treatment*high_score, df)
 stargazer(m.stats2, m.ps2, m.code2, type = "text")
 
+get_p_term <- function(m, pattern) {
+  ct <- coeftest(m, vcov = vcovHC(m, type = "HC0"))
+  rn <- rownames(ct)
+  idx <- grep(pattern, rn)
+  if (length(idx) == 0) return(NA_real_)
+  unname(ct[idx[1], "Pr(>|t|)"])
+}
+
+
+mods <- list( m.code2, m.stats2, m.ps2)
+
+p_trt <- sprintf("%.3f", sapply(mods, get_p_term, pattern = "^treatment$"))
+
+p_trt_basic <- sprintf("%.3f", 
+                       sapply(mods, get_p_term, pattern = "treatment:high_score"))
+
+
 out.file <- "../writeup/task_correct_het2.tex" 
 sink("/dev/null")
 s <- stargazer( m.code2, m.stats2, m.ps2, 
@@ -192,14 +231,11 @@ s <- stargazer( m.code2, m.stats2, m.ps2,
                 column.sep.width = "-5pt",
                 omit = c('Constant'),
                 add.lines = list(
-                  c("Mean Y in Control Group", 
-                    sprintf("%.2f",mean_control1), 
-                    sprintf("%.2f",mean_control2), 
-                    sprintf("%.2f",mean_control3)
-                  ) ),             
+                  c("P-value (Trt)", p_trt),
+                  c("P-value (Trt x Knowledge of GPT’s strengths)", p_trt_basic)),             
                 se = list(sqrt(diag(vcovHC(m.code2, type = "HC0"))),
-                         sqrt(diag(vcovHC(m.stats2, type = "HC0"))),
-                         sqrt(diag(vcovHC(m.ps2, type = "HC0")))),
+                          sqrt(diag(vcovHC(m.stats2, type = "HC0"))),
+                          sqrt(diag(vcovHC(m.ps2, type = "HC0")))),
                 header = FALSE,
                 type = "latex")
 sink()
@@ -229,6 +265,21 @@ stargazer( m.code3, m.stats3, m.ps3, type = "text",
            se = list(sqrt(diag(vcovHC(m.code3, type = "HC0"))),
                      sqrt(diag(vcovHC(m.stats3, type = "HC0"))),
                      sqrt(diag(vcovHC(m.ps3, type = "HC0")))))
+get_p_term <- function(m, pattern) {
+  ct <- coeftest(m, vcov = vcovHC(m, type = "HC0"))
+  rn <- rownames(ct)
+  idx <- grep(pattern, rn)
+  if (length(idx) == 0) return(NA_real_)
+  unname(ct[idx[1], "Pr(>|t|)"])
+}
+
+
+mods <- list( m.code3, m.stats3, m.ps3)
+
+p_trt <- sprintf("%.3f", sapply(mods, get_p_term, pattern = "^treatment$"))
+
+p_trt_basic <- sprintf("%.3f", 
+                       sapply(mods, get_p_term, pattern = "treatment:GenAICalPreOver"))
 out.file <- "../writeup/task_correct_het3.tex" 
 sink("/dev/null")
 s <- stargazer( m.code3, m.stats3, m.ps3, 
@@ -244,13 +295,9 @@ s <- stargazer( m.code3, m.stats3, m.ps3,
                 star.char = c( "*", "**", "***"),
                 font.size = "small",
                 column.sep.width = "-5pt",
-                omit = c('Constant'),
                 add.lines = list(
-                  c("Mean Y in Control Group", 
-                    sprintf("%.2f",mean_control1), 
-                    sprintf("%.2f",mean_control2), 
-                    sprintf("%.2f",mean_control3)
-                  ) ),
+                  c("P-value (Trt)", p_trt),
+                  c("P-value (Trt x Overconfident)", p_trt_basic)),
                 se = list(sqrt(diag(vcovHC(m.code3, type = "HC0"))),
                           sqrt(diag(vcovHC(m.stats3, type = "HC0"))),
                           sqrt(diag(vcovHC(m.ps3, type = "HC0")))),
@@ -276,35 +323,49 @@ JJHmisc::AddTableNote(s, out.file, note)
 m.stats4 <- felm(StatsOverallRelativeNorm~treatment*StatsEducation, df)
 m.ps4 <- felm(PSMAEGradeAdjusted~treatment*StatsEducation, df)
 m.code4 <- felm(CodingProcessGradeRelativeNorm~treatment*StatsEducation, df)
+stargazer( m.code4, m.stats4, m.ps4, type = "text", 
+           se = list(sqrt(diag(vcovHC(m.code4, type = "HC0"))),
+                     sqrt(diag(vcovHC(m.stats4, type = "HC0"))),
+                     sqrt(diag(vcovHC(m.ps4, type = "HC0")))))
+get_p_term <- function(m, pattern) {
+  ct <- coeftest(m, vcov = vcovHC(m, type = "HC0"))
+  rn <- rownames(ct)
+  idx <- grep(pattern, rn)
+  if (length(idx) == 0) return(NA_real_)
+  unname(ct[idx[1], "Pr(>|t|)"])
+}
 
+
+mods <- list(m.code4, m.stats4, m.ps4)
+
+p_trt <- sprintf("%.3f", sapply(mods, get_p_term, pattern = "^treatment$"))
+
+p_trt_basic <- sprintf("%.3f", 
+                       sapply(mods, get_p_term, pattern = "treatment:StatsEducation"))
 
 out.file <- "../writeup/task_correct_het4.tex" 
 sink("/dev/null")
 s <- stargazer(m.code4, m.stats4, m.ps4, 
-                dep.var.labels = c("Coding Task Score", "Stats Task Score", "Prediction Task Score"),
-                title = "Effects of AI to workers performance on data science tasks, relative to data scientists",
-                label = "tab:task_correct_het4",
-                #column.separate = c(2),
-                covariate.labels = c("GenAI Treatment Assigned (Trt)", "Quant Degree", "Quant Degree x Trt"),
-                #covariate.labels = c("GenAI Treatment Assigned (Trt)", "Coding basics", "Proficient coder", "Coding basics x Trt", "Proficient coder x Trt"),
-                omit.stat = c("adj.rsq", "ser", "f"),
-                no.space = TRUE,
-                star.cutoffs = c(0.05, 0.01, 0.001),
-                star.char = c( "*", "**", "***"),
-                font.size = "small",
-                column.sep.width = "-5pt",
-               omit = c('Constant'),
+               dep.var.labels = c("Coding Task Score", "Stats Task Score", "Prediction Task Score"),
+               title = "Effects of AI to workers performance on data science tasks, relative to data scientists",
+               label = "tab:task_correct_het4",
+               #column.separate = c(2),
+               covariate.labels = c("GenAI Treatment Assigned (Trt)", "Quant Degree", "Quant Degree x Trt"),
+               #covariate.labels = c("GenAI Treatment Assigned (Trt)", "Coding basics", "Proficient coder", "Coding basics x Trt", "Proficient coder x Trt"),
+               omit.stat = c("adj.rsq", "ser", "f"),
+               no.space = TRUE,
+               star.cutoffs = c(0.05, 0.01, 0.001),
+               star.char = c( "*", "**", "***"),
+               font.size = "small",
+               column.sep.width = "-5pt",
                add.lines = list(
-                 c("Mean Y in Control Group", 
-                   sprintf("%.2f",mean_control1), 
-                   sprintf("%.2f",mean_control2), 
-                   sprintf("%.2f",mean_control3)
-                 ) ),
+                 c("P-value (Trt)", p_trt),
+                 c("P-value (Quant Degree x Trt)", p_trt_basic)),
                se = list(sqrt(diag(vcovHC(m.code4, type = "HC0"))),
                          sqrt(diag(vcovHC(m.stats4, type = "HC0"))),
                          sqrt(diag(vcovHC(m.ps4, type = "HC0")))),
-                header = FALSE,
-                type = "latex")
+               header = FALSE,
+               type = "latex")
 sink()
 note <- c("\\\\",
           "\\begin{minipage}{\\textwidth}",
@@ -321,6 +382,7 @@ note <- c("\\\\",
           \\starlanguage}",
           "\\end{minipage}")
 JJHmisc::AddTableNote(s, out.file, note)
+
 
 
 
