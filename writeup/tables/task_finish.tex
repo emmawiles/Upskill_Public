@@ -1,0 +1,35 @@
+
+\begin{table}[!htbp] \centering 
+  \caption{Effects of AI to whether or not they get submit any answer on each task} 
+  \label{tab:task_finish} 
+\small 
+\begin{tabular}{@{\extracolsep{-5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & Stats Submitted & Prediction Submitted & Coding Submitted \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ GenAI Treatment Assigned (Trt) & 0.062 & 0.018 & 0.069 \\ 
+  & (0.033) & (0.035) & (0.040) \\ 
+ \hline \\[-1.8ex] 
+Mean Y in Control Group & 0.85 & 0.87 & 0.78 \\ 
+P-value (Trt) & 0.066 & 0.616 & 0.089 \\ 
+Observations & 369 & 364 & 369 \\ 
+R$^{2}$ & 0.024 & 0.006 & 0.015 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\end{tabular}
+\\
+\begin{minipage}{\textwidth}
+{\footnotesize \emph{Notes}: 
+           This table analyzes the effect of the treatment on the consultants submitting any answer to each question.
+            Text of problems can be found in Appendix Section~\ref{sec:tasks}.
+           All regressions include controls for gender, location, native english status, and low tenure.
+              Reported entries are coefficient estimates with two-sided 95\% standard errors computed using Huber--White (HC0) robust variance.
+            Significance stars and p-values indicate two-sided tests using Huber–White (HC0) robust variance:
+* p \textless 0.05, ** p \textless 0.01, *** p \textless 0.001.
+          \starlanguage}
+\end{minipage}
+\end{table}

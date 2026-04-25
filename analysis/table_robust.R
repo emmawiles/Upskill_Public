@@ -66,7 +66,7 @@ ps1 <- stargazer( m.1, m.2, m.3, m.4, m.5,
                 omit.stat = c("adj.rsq", "ser", "f"),
                 #order=paste0("^", vars.order , "$"),
                 no.space = TRUE,
-                star.cutoffs = c(0.10, 0.05, 0.01),
+                star.cutoffs = c(0.05, 0.01, 0.001),
                 star.char = c( "*", "**", "***"),
                 font.size = "small",
                 column.sep.width = "-5pt",
@@ -75,14 +75,16 @@ ps1 <- stargazer( m.1, m.2, m.3, m.4, m.5,
 sink()
 note <- c("\\\\",
           "\\begin{minipage}{\\textwidth}",
-          "{\\footnotesize \\emph{Notes}: 
-           This table analyzes the effect of the treatment on the worker's score on the prediction problem, -1 times their mean absolute error from the correct answer, where 0 is a perfect score.
-          The first specification is the effect of treatment on their score. 
-          The second specification adds controls for gender, office location, native english status, and prior coding ability.
-          The third specification is the same as column (2) but with additional controls for different measures of the workers prior technical experience.
-         The fourth specification is the same as column (2), where the treatment is interacted with the workers prior coding experience.
-          The fifth specification is the same as column (3), where the treatment is interacted with the workers prior coding experience.
-          \\starlanguage}",
+          paste0("{\\footnotesize \\emph{Notes}: ",
+                 "This table analyzes the effect of the treatment on the worker's score on the prediction problem, -1 times their mean absolute error from the correct answer, where 0 is a perfect score. ",
+                 "The first specification is the effect of treatment on their score. ",
+                 "The second specification adds controls for gender, office location, native english status, and prior coding ability. ",
+                 "The third specification is the same as column (2) but with additional controls for different measures of the workers prior technical experience. ",
+                 "The fourth specification is the same as column (2), where the treatment is interacted with the workers prior coding experience. ",
+                 "The fifth specification is the same as column (3), where the treatment is interacted with the workers prior coding experience. ",
+                 "All reported standard errors are two-sided 95\\% standard errors computed using Huber--White (HC0) robust variance. ",
+                 "Significance stars and p-values indicate two-sided tests using Huber--White (HC0) robust variance: ",
+                 "* p \\textless 0.05, ** p \\textless 0.01, *** p \\textless 0.001.}"),
           "\\end{minipage}")
 JJHmisc::AddTableNote(ps1, out.file, note)
 
@@ -110,7 +112,7 @@ stats <- stargazer( m.6, m.7, m.8, m.9, m.10,
                   omit.stat = c("adj.rsq", "ser", "f"),
                   #order=paste0("^", vars.order , "$"),
                   no.space = TRUE,
-                  star.cutoffs = c(0.10, 0.05, 0.01),
+                  star.cutoffs = c(0.05, 0.01, 0.001),
                   star.char = c( "*", "**", "***"),
                   font.size = "small",
                   column.sep.width = "-5pt",
@@ -119,14 +121,16 @@ stats <- stargazer( m.6, m.7, m.8, m.9, m.10,
 sink()
 note <- c("\\\\",
           "\\begin{minipage}{\\textwidth}",
-          "{\\footnotesize \\emph{Notes}: 
-           This table analyzes the effect of the treatment on the worker's score on the statistcis task relative to the data scientists benchmark, where 0 is a perfect score.
-          The first specification is the effect of treatment on their score. 
-          The second specification adds controls for gender, office location, native english status, and prior coding ability.
-          The third specification is the same as column (2) but with additional controls for different measures of the workers prior technical experience.
-         The fourth specification is the same as column (2), where the treatment is interacted with the workers prior coding experience.
-          The fifth specification is the same as column (3), where the treatment is interacted with the workers prior coding experience.
-          \\starlanguage}",
+          paste0("{\\footnotesize \\emph{Notes}: ",
+                 "This table analyzes the effect of the treatment on the worker's score on the statistics task relative to the data scientists benchmark, where 0 is a perfect score. ",
+                 "The first specification is the effect of treatment on their score. ",
+                 "The second specification adds controls for gender, office location, native english status, and prior coding ability. ",
+                 "The third specification is the same as column (2) but with additional controls for different measures of the workers prior technical experience. ",
+                 "The fourth specification is the same as column (2), where the treatment is interacted with the workers prior coding experience. ",
+                 "The fifth specification is the same as column (3), where the treatment is interacted with the workers prior coding experience. ",
+                 "All reported standard errors are two-sided 95\\% standard errors computed using Huber--White (HC0) robust variance. ",
+                 "Significance stars and p-values indicate two-sided tests using Huber--White (HC0) robust variance: ",
+                 "* p \\textless 0.05, ** p \\textless 0.01, *** p \\textless 0.001.}"),
           "\\end{minipage}")
 JJHmisc::AddTableNote(stats, out.file, note)
 
@@ -154,7 +158,7 @@ stats <- stargazer( m.11, m.12, m.13, m.14, m.15,
                     omit.stat = c("adj.rsq", "ser", "f"),
                     #order=paste0("^", vars.order , "$"),
                     no.space = TRUE,
-                    star.cutoffs = c(0.10, 0.05, 0.01),
+                    star.cutoffs = c(0.05, 0.01, 0.001),
                     star.char = c( "*", "**", "***"),
                     font.size = "small",
                     column.sep.width = "-5pt",
@@ -163,14 +167,16 @@ stats <- stargazer( m.11, m.12, m.13, m.14, m.15,
 sink()
 note <- c("\\\\",
           "\\begin{minipage}{\\textwidth}",
-          "{\\footnotesize \\emph{Notes}: 
-           This table analyzes the effect of the treatment on the worker's score on the coding task relative to the data scientists benchmark, where 0 is a perfect score.
-          The first specification is the effect of treatment on their score. 
-          The second specification adds controls for gender, office location, native english status, and prior coding ability.
-          The third specification is the same as column (2) but with additional controls for different measures of the workers prior technical experience.
-         The fourth specification is the same as column (2), where the treatment is interacted with the workers prior coding experience.
-          The fifth specification is the same as column (3), where the treatment is interacted with the workers prior coding experience.
-          \\starlanguage}",
+          paste0("{\\footnotesize \\emph{Notes}: ",
+                 "This table analyzes the effect of the treatment on the worker's score on the coding task relative to the data scientists benchmark, where 0 is a perfect score. ",
+                 "The first specification is the effect of treatment on their score. ",
+                 "The second specification adds controls for gender, office location, native english status, and prior coding ability. ",
+                 "The third specification is the same as column (2) but with additional controls for different measures of the workers prior technical experience. ",
+                 "The fourth specification is the same as column (2), where the treatment is interacted with the workers prior coding experience. ",
+                 "The fifth specification is the same as column (3), where the treatment is interacted with the workers prior coding experience. ",
+                 "All reported standard errors are two-sided 95\\% standard errors computed using Huber--White (HC0) robust variance. ",
+                 "Significance stars and p-values indicate two-sided tests using Huber--White (HC0) robust variance: ",
+                 "* p \\textless 0.05, ** p \\textless 0.01, *** p \\textless 0.001.}"),
           "\\end{minipage}")
 JJHmisc::AddTableNote(stats, out.file, note)
 

@@ -1,0 +1,28 @@
+
+\begin{table}[!htbp] \centering 
+  \caption{Effects of AI on number of minutes to complete each task} 
+  \label{tab:time} 
+\small 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & Mins on Stats & Mins on Prediction & Mins on Coding \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ GenAI Treatment Assigned (Trt) & 2.312 & $-$14.450$^{***}$ & $-$8.884$^{***}$ \\ 
+  & (2.407) & (2.946) & (2.521) \\ 
+ \hline \\[-1.8ex] 
+Mean Y in Control Group & 63.61 & 68.36 & 78.01 \\ 
+P-value (Trt) & 0.340 & 0.000 & 0.000 \\ 
+Observations & 327 & 318 & 303 \\ 
+R$^{2}$ & 0.021 & 0.094 & 0.058 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\end{tabular}
+\\
+\begin{minipage}{\textwidth}
+{\footnotesize \emph{Notes}: This table analyzes the effect of the treatment on the length of time it took for consultants to finish each task, conditional on completion. The outcome in Column (1) is the number of minutes they spent on the Statistics task. The outcome in Column (2) is the number of minutes spent on the Problem Solving and Prediction task. And the outcome in Column (3) is the number of minutes spent on the Coding task. Consultants were randomly assigned two of the three tasks, and given 90 minutes maximum to complete each. All regressions include controls for gender, location, native english status, and low tenure. All reported standard errors are two-sided 95\% standard errors computed using Huber--White (HC0) robust variance. Significance stars and p-values indicate two-sided tests using Huber--White (HC0) robust variance: * p \textless 0.05, ** p \textless 0.01, *** p \textless 0.001.}
+\end{minipage}
+\end{table}

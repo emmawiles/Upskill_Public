@@ -62,14 +62,14 @@ out.file <- "../writeup/tables/task_finish2.tex"
 sink("/dev/null")
 s <- stargazer( m.1, m.2,
                 dep.var.labels = c("Task 1 Submitted", "Task 2 Submitted"),
-                title = "Effects of AI to whether or not they get submit any answer on each task",
+                title = "Effects of AI to whether or not they submit any answer on each task",
                 label = "tab:task_finish2",
                 #column.separate = c(2),
                 covariate.labels = c("GenAI Treatment Assigned (Trt)"),# "Knowledge of GPT's strengths", "Knowledge of GPT's strengths x Trt"),
                 #star.cutoffs = c(0.10, 0.05, 0.01, 0.001),
                 omit.stat = c("adj.rsq", "ser", "f"),
                 no.space = TRUE,
-                star.cutoffs = c(0.10, 0.05, 0.01),
+                star.cutoffs = c(0.05, 0.01, 0.001),
                 star.char = c( "*", "**", "***"),
                 font.size = "small",
                 column.sep.width = "-5pt",
@@ -91,7 +91,7 @@ note <- c("\\\\",
            All regressions include controls for gender, location, native english status, and low tenure.
               Reported entries are coefficient estimates with two-sided 95\\% standard errors computed using Huber--White (HC0) robust variance.
             Significance stars and p-values indicate two-sided tests using Huber–White (HC0) robust variance:
-* p \\textless 0.10, ** p \\textless 0.05, *** p \\textless 0.01.
+* p \\textless 0.05, ** p \\textless 0.01, *** p \\textless 0.001.
           \\starlanguage}",
           "\\end{minipage}")
 JJHmisc::AddTableNote(s, out.file, note)
@@ -116,14 +116,14 @@ out.file <- "../writeup/tables/task_finish.tex"
 sink("/dev/null")
 s <- stargazer( m.5, m.6, m.7,
                 dep.var.labels = c("Stats Submitted", "Prediction Submitted" ,"Coding Submitted"),
-                title = "Effects of AI to whether or not they get submit any answer on each task",
+                title = "Effects of AI to whether or not they submit any answer on each task",
                 label = "tab:task_finish",
                 #column.separate = c(2),
                 covariate.labels = c("GenAI Treatment Assigned (Trt)"),# "Knowledge of GPT's strengths", "Knowledge of GPT's strengths x Trt"),
                 #star.cutoffs = c(0.10, 0.05, 0.01, 0.001),
                 omit.stat = c("adj.rsq", "ser", "f"),
                 no.space = TRUE,
-                star.cutoffs = c(0.10, 0.05, 0.01),
+                star.cutoffs = c(0.05, 0.01, 0.001),
                 star.char = c( "*", "**", "***"),
                 font.size = "small",
                 column.sep.width = "-5pt",
@@ -146,7 +146,7 @@ note <- c("\\\\",
            All regressions include controls for gender, location, native english status, and low tenure.
               Reported entries are coefficient estimates with two-sided 95\\% standard errors computed using Huber--White (HC0) robust variance.
             Significance stars and p-values indicate two-sided tests using Huber–White (HC0) robust variance:
-* p \\textless 0.10, ** p \\textless 0.05, *** p \\textless 0.01.
+* p \\textless 0.05, ** p \\textless 0.01, *** p \\textless 0.001.
           \\starlanguage}",
           "\\end{minipage}")
 JJHmisc::AddTableNote(s, out.file, note)

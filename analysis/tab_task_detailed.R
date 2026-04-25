@@ -73,7 +73,7 @@ s1 <- stargazer( m.1a, m.1b, m.1c,
                 #covariate.labels = c("GenAI Treatment Assigned (Trt)", "Coding basics", "Proficient coder", "Coding basics x Trt", "Proficient coder x Trt"),
                 omit.stat = c("adj.rsq", "ser", "f"),
                 no.space = TRUE,
-                star.cutoffs = c(0.10, 0.05, 0.01),
+                star.cutoffs = c(0.05, 0.01, 0.001),
                 star.char = c( "*", "**", "***"),
                 font.size = "small",
                 column.sep.width = "-5pt",
@@ -102,7 +102,7 @@ note <- c("\\\\",
             Exact definition of grading for each problem can be found in Appendix Section~\\ref{sec:tasks}.
             Reported entries are coefficient estimates with two-sided 95\\% standard errors computed using Huber--White (HC0) robust variance.
             Significance stars and p-values indicate two-sided tests using Huber–White (HC0) robust variance:
-* p \\textless 0.10, ** p \\textless 0.05, *** p \\textless 0.01.
+* p \\textless 0.05, ** p \\textless 0.01, *** p \\textless 0.001.
            All regressions include controls for gender, location, native english status, and low tenure.
           \\starlanguage}",
           "\\end{minipage}")
@@ -127,7 +127,7 @@ s2 <- stargazer( m.2a, m.2b,
                 #covariate.labels = c("GenAI Treatment Assigned (Trt)", "Coding basics", "Proficient coder", "Coding basics x Trt", "Proficient coder x Trt"),
                 omit.stat = c("adj.rsq", "ser", "f"),
                 no.space = TRUE,
-                star.cutoffs = c(0.10, 0.05, 0.01),
+                star.cutoffs = c(0.05, 0.01, 0.001),
                 star.char = c( "*", "**", "***"),
                 font.size = "small",
                 column.sep.width = "-5pt",
@@ -154,7 +154,7 @@ note <- c("\\\\",
            All regressions include controls for gender, location, native english status, and low tenure.
                 Reported entries are coefficient estimates with two-sided 95\\% standard errors computed using Huber--White (HC0) robust variance.
             Significance stars and p-values indicate two-sided tests using Huber–White (HC0) robust variance:
-* p \\textless 0.10, ** p \\textless 0.05, *** p \\textless 0.01.
+* p \\textless 0.05, ** p \\textless 0.01, *** p \\textless 0.001.
            All regressions include controls for gender, location, native english status, and low tenure.
           \\starlanguage}",
           "\\end{minipage}")
@@ -176,7 +176,7 @@ s3 <- stargazer( m.3a, m.3b, m.3c,
                 covariate.labels = c("GenAI Treatment Assigned (Trt)"),
                 omit.stat = c("adj.rsq", "ser", "f"),
                 no.space = TRUE,
-                star.cutoffs = c(0.10, 0.05, 0.01),
+                star.cutoffs = c(0.05, 0.01, 0.001),
                 star.char = c( "*", "**", "***"),
                 font.size = "small",
                 column.sep.width = "-5pt",
@@ -204,7 +204,7 @@ note <- c("\\\\",
             Exact definition of grading for each problem can be found in Appendix Section~\\ref{sec:tasks}.
            All regressions include controls for gender, location, native english status, and low tenure.      Reported entries are coefficient estimates with two-sided 95\\% standard errors computed using Huber--White (HC0) robust variance.
             Significance stars and p-values indicate two-sided tests using Huber–White (HC0) robust variance:
-* p \\textless 0.10, ** p \\textless 0.05, *** p \\textless 0.01.
+* p \\textless 0.05, ** p \\textless 0.01, *** p \\textless 0.001.
          ",
           "\\end{minipage}")
 JJHmisc::AddTableNote(s3, out.file, note)
