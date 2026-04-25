@@ -86,3 +86,4 @@ note <- c("\\\\",
 }",
           "\\end{minipage}")
 JJHmisc::AddTableNote(s, out.file, note)
+
