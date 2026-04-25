@@ -32,6 +32,62 @@ Dependencies
 - R packages used by the analysis scripts must be installed in the local R environment.
 - Stata is only required for the `.do` files used for Lee bounds and attrition analyses.
 
+Required R packages
+
+The analysis scripts import the following R packages:
+
+- `dplyr`
+- `tidyr`
+- `ggplot2`
+- `stargazer`
+- `haven`
+- `lfe`
+- `lmtest`
+- `sandwich`
+- `forcats`
+- `magrittr`
+- `msm`
+- `car`
+- `broom`
+- `readr`
+- `latex2exp`
+- `quantreg`
+- `JJHmisc`
+
+For CRAN packages, you can install them with:
+
+```r
+install.packages(c(
+  "dplyr",
+  "tidyr",
+  "ggplot2",
+  "stargazer",
+  "haven",
+  "lfe",
+  "lmtest",
+  "sandwich",
+  "forcats",
+  "magrittr",
+  "msm",
+  "car",
+  "broom",
+  "readr",
+  "latex2exp",
+  "quantreg",
+  "devtools"
+))
+```
+
+Install `JJHmisc` from GitHub:
+
+```r
+# Install devtools if you haven't already
+install.packages("devtools")
+
+# Install JJHmisc from GitHub
+devtools::install_github("johnjosephhorton/JJHmisc")
+```
+
 Output directories
 
 Generated outputs are written to multiple locations in `writeup/`, primarily:
