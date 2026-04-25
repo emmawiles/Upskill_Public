@@ -1,0 +1,58 @@
+
+\begin{table}[!htbp] \centering 
+  \caption{Effects of AI to workers performance on coding task, relative to data scientists} 
+  \label{tab:robust_coding} 
+\small 
+\begin{tabular}{@{\extracolsep{-5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{5}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-6} 
+\\[-1.8ex] & \multicolumn{5}{c}{Coding Score} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
+\hline \\[-1.8ex] 
+ GenAI Treatment Assigned (Trt) & 0.490$^{***}$ & 0.491$^{***}$ & 0.487$^{***}$ & 0.559$^{***}$ & 0.564$^{***}$ \\ 
+  & (0.038) & (0.038) & (0.038) & (0.069) & (0.069) \\ 
+  Coding basics &  &  &  & 0.102 & 0.074 \\ 
+  &  &  &  & (0.071) & (0.072) \\ 
+  Competent coder &  &  &  & 0.179$^{*}$ & 0.129 \\ 
+  &  &  &  & (0.072) & (0.080) \\ 
+  Europe &  & 0.053 & 0.072 & 0.075 & 0.088$^{*}$ \\ 
+  &  & (0.041) & (0.041) & (0.041) & (0.042) \\ 
+  Female &  & 0.027 & 0.041 & 0.052 & 0.042 \\ 
+  &  & (0.040) & (0.041) & (0.040) & (0.041) \\ 
+  Low tenure &  & $-$0.042 & $-$0.063 & $-$0.056 & $-$0.080 \\ 
+  &  & (0.039) & (0.040) & (0.038) & (0.041) \\ 
+  Native English speaker &  & 0.051 & 0.023 & 0.055 & 0.025 \\ 
+  &  & (0.041) & (0.042) & (0.041) & (0.042) \\ 
+  Masters degree &  &  & $-$0.072 &  & $-$0.074 \\ 
+  &  &  & (0.046) &  & (0.046) \\ 
+  PhD &  &  & $-$0.125 &  & $-$0.117 \\ 
+  &  &  & (0.072) &  & (0.072) \\ 
+  Degree in quantitative field &  &  & 0.048 &  & 0.040 \\ 
+  &  &  & (0.045) &  & (0.045) \\ 
+  STEM &  &  & 0.063 &  & 0.045 \\ 
+  &  &  & (0.040) &  & (0.043) \\ 
+  Minimal experience with prediction &  &  & $-$0.102$^{*}$ &  & $-$0.106$^{*}$ \\ 
+  &  &  & (0.051) &  & (0.051) \\ 
+  Some experience with prediction &  &  & 0.046 &  & 0.0002 \\ 
+  &  &  & (0.050) &  & (0.056) \\ 
+  Data visualization experience &  &  & 0.034 &  & 0.023 \\ 
+  &  &  & (0.049) &  & (0.049) \\ 
+  Coding basics x Trt &  &  &  & $-$0.162 & $-$0.160 \\ 
+  &  &  &  & (0.094) & (0.095) \\ 
+  Competent coder x Trt &  &  &  & $-$0.042 & $-$0.056 \\ 
+  &  &  &  & (0.094) & (0.094) \\ 
+  Constant & $-$0.629$^{***}$ & $-$0.668$^{***}$ & $-$0.653$^{***}$ & $-$0.781$^{***}$ & $-$0.690$^{***}$ \\ 
+  & (0.028) & (0.050) & (0.082) & (0.071) & (0.093) \\ 
+ \hline \\[-1.8ex] 
+Observations & 300 & 300 & 300 & 300 & 300 \\ 
+R$^{2}$ & 0.360 & 0.369 & 0.409 & 0.403 & 0.425 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\end{tabular}
+\\
+\begin{minipage}{\textwidth}
+{\footnotesize \emph{Notes}: This table analyzes the effect of the treatment on the worker's score on the coding task relative to the data scientists benchmark, where 0 is a perfect score. The first specification is the effect of treatment on their score. The second specification adds controls for gender, office location, native english status, and prior coding ability. The third specification is the same as column (2) but with additional controls for different measures of the workers prior technical experience. The fourth specification is the same as column (2), where the treatment is interacted with the workers prior coding experience. The fifth specification is the same as column (3), where the treatment is interacted with the workers prior coding experience. All reported standard errors are two-sided 95\% standard errors computed using Huber--White (HC0) robust variance. Significance stars and p-values indicate two-sided tests using Huber--White (HC0) robust variance: * p \textless 0.05, ** p \textless 0.01, *** p \textless 0.001.}
+\end{minipage}
+\end{table}

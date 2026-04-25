@@ -1,0 +1,58 @@
+
+\begin{table}[!htbp] \centering 
+  \caption{Effects of AI to workers performance on a prediction task, relative to data scientists} 
+  \label{tab:robust_ps} 
+\small 
+\begin{tabular}{@{\extracolsep{-5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{5}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-6} 
+\\[-1.8ex] & \multicolumn{5}{c}{Mean Absolute Error} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
+\hline \\[-1.8ex] 
+ GenAI Treatment Assigned (Trt) & 0.172$^{***}$ & 0.182$^{***}$ & 0.168$^{***}$ & 0.103 & 0.086 \\ 
+  & (0.041) & (0.041) & (0.042) & (0.078) & (0.078) \\ 
+  Coding basics &  &  &  & 0.014 & 0.043 \\ 
+  &  &  &  & (0.073) & (0.076) \\ 
+  Competent coder &  &  &  & $-$0.026 & 0.023 \\ 
+  &  &  &  & (0.080) & (0.096) \\ 
+  Europe &  & 0.020 & 0.016 & 0.025 & 0.019 \\ 
+  &  & (0.046) & (0.046) & (0.046) & (0.047) \\ 
+  Female &  & 0.023 & 0.011 & 0.028 & 0.008 \\ 
+  &  & (0.043) & (0.044) & (0.043) & (0.044) \\ 
+  Low tenure &  & $-$0.008 & $-$0.026 & $-$0.011 & $-$0.028 \\ 
+  &  & (0.042) & (0.044) & (0.042) & (0.044) \\ 
+  Native English speaker &  & 0.084 & 0.101$^{*}$ & 0.088 & 0.104$^{*}$ \\ 
+  &  & (0.047) & (0.049) & (0.047) & (0.049) \\ 
+  Masters degree &  &  & 0.088 &  & 0.101$^{*}$ \\ 
+  &  &  & (0.050) &  & (0.050) \\ 
+  PhD &  &  & $-$0.084 &  & $-$0.076 \\ 
+  &  &  & (0.089) &  & (0.089) \\ 
+  Degree in quantitative field &  &  & 0.002 &  & 0.012 \\ 
+  &  &  & (0.048) &  & (0.049) \\ 
+  STEM &  &  & $-$0.016 &  & $-$0.046 \\ 
+  &  &  & (0.045) &  & (0.048) \\ 
+  Minimal experience with prediction &  &  & $-$0.099 &  & $-$0.094 \\ 
+  &  &  & (0.054) &  & (0.054) \\ 
+  Some experience with prediction &  &  & $-$0.037 &  & $-$0.079 \\ 
+  &  &  & (0.057) &  & (0.065) \\ 
+  Data visualization experience &  &  & 0.050 &  & 0.030 \\ 
+  &  &  & (0.052) &  & (0.053) \\ 
+  Coding basics x Trt &  &  &  & 0.051 & 0.058 \\ 
+  &  &  &  & (0.101) & (0.101) \\ 
+  Competent coder x Trt &  &  &  & 0.173 & 0.176 \\ 
+  &  &  &  & (0.107) & (0.107) \\ 
+  Constant & $-$0.432$^{***}$ & $-$0.491$^{***}$ & $-$0.516$^{***}$ & $-$0.494$^{***}$ & $-$0.515$^{***}$ \\ 
+  & (0.030) & (0.055) & (0.087) & (0.077) & (0.098) \\ 
+ \hline \\[-1.8ex] 
+Observations & 298 & 298 & 298 & 298 & 298 \\ 
+R$^{2}$ & 0.056 & 0.068 & 0.101 & 0.083 & 0.120 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\end{tabular}
+\\
+\begin{minipage}{\textwidth}
+{\footnotesize \emph{Notes}: This table analyzes the effect of the treatment on the worker's score on the prediction problem, -1 times their mean absolute error from the correct answer, where 0 is a perfect score. The first specification is the effect of treatment on their score. The second specification adds controls for gender, office location, native english status, and prior coding ability. The third specification is the same as column (2) but with additional controls for different measures of the workers prior technical experience. The fourth specification is the same as column (2), where the treatment is interacted with the workers prior coding experience. The fifth specification is the same as column (3), where the treatment is interacted with the workers prior coding experience. All reported standard errors are two-sided 95\% standard errors computed using Huber--White (HC0) robust variance. Significance stars and p-values indicate two-sided tests using Huber--White (HC0) robust variance: * p \textless 0.05, ** p \textless 0.01, *** p \textless 0.001.}
+\end{minipage}
+\end{table}
