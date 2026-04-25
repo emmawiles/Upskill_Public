@@ -66,13 +66,15 @@ s <- stargazer( m.timeS, m.timePS, m.timeC,
 sink()
 note <- c("\\\\",
           "\\begin{minipage}{\\textwidth}",
-          "{\\footnotesize \\emph{Notes}: 
-           This table analyzes the effect of the treatment on the length of time it took for consultants to finish each task, conditional on completion.
-           The outcome in Column (1) is the number of minutes they spent on the Statistics task. The outcome in Column (2) is the number of minutes spent on the Problem Solving and Prediction task.
-           And the outcome in Column (3) is the number of minutes spent on the Coding task.
-           Consultants were randomly assigned two of the three tasks, and given 90 minutes maximum to complete each.
-           All regressions include controls for gender, location, native english status, and low tenure.
-* p \\textless 0.05, ** p \\textless 0.01, *** p \\textless 0.001.
-          \\starlanguage}",
+          paste0("{\\footnotesize \\emph{Notes}: ",
+                 "This table analyzes the effect of the treatment on the length of time it took for consultants to finish each task, conditional on completion. ",
+                 "The outcome in Column (1) is the number of minutes they spent on the Statistics task. ",
+                 "The outcome in Column (2) is the number of minutes spent on the Problem Solving and Prediction task. ",
+                 "And the outcome in Column (3) is the number of minutes spent on the Coding task. ",
+                 "Consultants were randomly assigned two of the three tasks, and given 90 minutes maximum to complete each. ",
+                 "All regressions include controls for gender, location, native english status, and low tenure. ",
+                 "All reported standard errors are two-sided 95\\% standard errors computed using Huber--White (HC0) robust variance. ",
+                 "Significance stars and p-values indicate two-sided tests using Huber--White (HC0) robust variance: ",
+                 "* p \\textless 0.05, ** p \\textless 0.01, *** p \\textless 0.001.}"),
           "\\end{minipage}")
 JJHmisc::AddTableNote(s, out.file, note)
