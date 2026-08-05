@@ -1,7 +1,7 @@
 /* =========================================================================
    Generative AI and the Temporary Upskilling of Knowledge Workers
    Editorial research site. Plain CSS, no framework, no build step.
-   Light + dark via prefers-color-scheme. One restrained accent (brick red,
+   A single light editorial theme. One restrained accent (brick red,
    drawn from the paper's figures).
    ========================================================================= */
 
@@ -24,23 +24,8 @@
   --focus: #1d5fa8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #14140f;
-    --surface: #1c1c16;
-    --surface-alt: #201f18;
-    --ink: #ece9e2;
-    --ink-soft: #d6d2c8;
-    --muted: #a7a49b;
-    --accent: #e0796b;
-    --accent-ink: #eb8f81;
-    --control: #7fa2b4;
-    --border: #34342c;
-    --border-strong: #45443a;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
-    --focus: #7db3f0;
-  }
-}
+/* This site uses a single light editorial theme. */
+:root { color-scheme: light; }
 
 * { box-sizing: border-box; }
 
@@ -194,7 +179,6 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 .flow-n { flex: 0 0 auto; width: 2rem; height: 2rem; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: .95rem; }
 .flow li p { margin: 0; font-size: .98rem; align-self: center; }
 .sample-note { font-size: .92rem; color: var(--muted); background: var(--surface-alt); border-radius: 8px; padding: 1rem 1.2rem; }
-@media (prefers-color-scheme: dark) { .sample-note { background: var(--surface); border: 1px solid var(--border); } }
 
 /* Task cards */
 .task-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 1.2rem; }
@@ -275,7 +259,6 @@ details { border-radius: 8px; }
 .paper-authors { font-size: 1rem; color: var(--ink-soft); margin-bottom: .3em; }
 .paper-affils { font-size: .86rem; color: var(--muted); margin-bottom: .8em; }
 .paper-status { font-size: .9rem; color: var(--ink-soft); background: var(--surface-alt); padding: .7em 1em; border-radius: 8px; }
-@media (prefers-color-scheme: dark) { .paper-status { background: var(--bg); } }
 .paper-abstract { font-size: .98rem; color: var(--ink-soft); margin: 1.2rem 0 1.6rem; }
 .citation { margin-top: 1.8rem; border-top: 1px solid var(--border); padding-top: 1.4rem; }
 .citation-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
@@ -285,13 +268,11 @@ details { border-radius: 8px; }
 .copy-btn:hover { background: var(--surface-alt); }
 .copy-btn.copied { color: #fff; background: var(--accent); border-color: var(--accent); }
 .citation-text { font-size: .92rem; color: var(--ink); background: var(--surface-alt); border-radius: 8px; padding: 1em 1.1em; margin: .8rem 0 .4rem; }
-@media (prefers-color-scheme: dark) { .citation-text { background: var(--bg); } }
 .citation-note { font-size: .8rem; color: var(--muted); }
 .data-availability, .acks { font-size: .88rem; color: var(--muted); margin-top: 1.4rem; }
 
 /* Footer */
 .site-footer { background: var(--ink); color: #e8e5dd; padding: clamp(2.5rem, 6vw, 4rem) 0; }
-@media (prefers-color-scheme: dark) { .site-footer { background: #0d0d09; border-top: 1px solid var(--border); } }
 .footer-thesis { font-size: clamp(1.15rem, 2.6vw, 1.5rem); font-style: italic; max-width: 34ch; color: #fff; line-height: 1.4; }
 .footer-scope { font-size: .88rem; color: #b8b4a9; max-width: 70ch; }
 .footer-links { font-size: .9rem; margin-top: 1.5rem; }

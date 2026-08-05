@@ -20,13 +20,13 @@ conveniences (mobile-menu auto-close, active-section highlighting, copy-citation
 ```
 website/
 ├── index.html                 # The entire page (semantic, single file)
-├── styles.css                 # All styling; light + dark via prefers-color-scheme
+├── styles.css                 # All styling; a single light editorial theme
 ├── main.js                    # Progressive enhancement only (site works without it)
 ├── data/
 │   ├── figures.json           # Every displayed statistic, with sources
 │   └── provenance.json        # Where each number comes from (paper + repo file)
 ├── assets/
-│   ├── charts/                # Generated, self-contained, theme-aware SVG charts
+│   ├── charts/                # Generated, self-contained, light-theme SVG charts
 │   │   ├── fig1_main_effects.svg
 │   │   ├── fig2_coding.svg  fig2_statistics.svg  fig2_prediction.svg
 │   │   ├── fig3_learning.svg
@@ -132,8 +132,7 @@ python3 scripts/make_charts.py
 ```
 
 Reads `data/figures.json` and rewrites the six SVGs in `assets/charts/`. The SVGs
-are self-contained and theme-aware (they respond to the viewer's light/dark
-preference on their own).
+are self-contained and use the site's single light theme.
 
 ### Regenerating the screenshots
 

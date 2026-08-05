@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
 <title>Generative AI as a Temporary Exoskeleton for Upskilling Knowledge Workers</title>
 <meta name="description" content="A randomized experiment with 986 consultants finds that generative AI can temporarily expand what knowledge workers can do — but using AI to perform new tasks is not the same as learning the underlying skills.">
 <meta property="og:title" content="Generative AI as a Temporary Exoskeleton for Upskilling Knowledge Workers">
@@ -115,11 +116,9 @@
     <p class="kicker">Overview</p>
     <h2 id="overview-h">Two different things we call &ldquo;upskilling&rdquo;</h2>
     <p>
-      We conducted a randomized experiment involving <strong>986 consultants</strong> at Boston Consulting
-      Group (BCG), a global management consulting firm. The study asks a specific question: can generative AI
-      help knowledge workers take on technical work that is normally outside their skill set&mdash;and if it
-      can, does that experience leave them with lasting skills? The paper is forthcoming in
-      <em>Nature Human Behaviour</em>.
+      The study asks a specific question: can generative AI help knowledge workers take on technical work
+      that is normally outside their skill set&mdash;and if it can, does that experience leave them with
+      lasting skills? The paper is forthcoming in <em>Nature Human Behaviour</em>.
     </p>
     <p>The results turn on a distinction the paper draws carefully:</p>
 
@@ -151,21 +150,18 @@
 <!-- ================= STUDY ================= -->
 <section id="study" class="section section-alt" aria-labelledby="study-h">
   <div class="wrap">
-    <p class="kicker">The Study</p>
-    <h2 id="study-h">How the experiment worked</h2>
+    <p class="kicker">The Experiment</p>
+    <h2 id="study-h">The experiment</h2>
     <p class="section-intro narrow">
-      A <strong>randomized experiment</strong> assigns people to groups by chance, so that differences in
-      outcomes can be attributed to the treatment rather than to who happened to be in each group.
+      A <strong>randomized experiment</strong> assigns people to groups by chance, so any difference in
+      outcomes reflects the treatment rather than who was in each group.
     </p>
 
     <ol class="flow" aria-label="Study flow">
-      <li><span class="flow-n">1</span><p><strong>986 consultants</strong> entered the experiment &mdash; skilled knowledge workers whose expertise is in analysis and problem-solving, most of whom reported little or no prior coding experience.</p></li>
-      <li><span class="flow-n">2</span><p>Each participant was <strong>randomly assigned</strong> to a treatment or a control condition.</p></li>
-      <li><span class="flow-n">3</span><p>The <strong>treatment</strong> group received access to and a short training in <strong>ChatGPT</strong> (GPT-4).</p></li>
-      <li><span class="flow-n">4</span><p>The <strong>control</strong> group received a short training in conventional online resources (Google, Stack Overflow, Khan Academy).</p></li>
-      <li><span class="flow-n">5</span><p>Each participant attempted <strong>two of three</strong> unfamiliar 90-minute data-science tasks.</p></li>
-      <li><span class="flow-n">6</span><p>Performance was scored against a <strong>benchmark set by 44 BCG data scientists</strong> who did the tasks without AI.</p></li>
-      <li><span class="flow-n">7</span><p>Everyone answered <strong>post-experiment technical questions without ChatGPT</strong>.</p></li>
+      <li><span class="flow-n">1</span><p><strong>986 consultants</strong> &mdash; skilled knowledge workers, most with little or no coding experience &mdash; were <strong>randomly assigned</strong> to treatment or control.</p></li>
+      <li><span class="flow-n">2</span><p>The <strong>treatment</strong> group was trained on <strong>ChatGPT</strong> (GPT-4); the <strong>control</strong> group on conventional resources like Google and Stack Overflow.</p></li>
+      <li><span class="flow-n">3</span><p>Each attempted <strong>two of three</strong> unfamiliar 90-minute data-science tasks, scored against a <strong>benchmark of 44 BCG data scientists</strong>.</p></li>
+      <li><span class="flow-n">4</span><p>Afterward, everyone answered <strong>technical questions without ChatGPT</strong>.</p></li>
     </ol>
 
     <p class="sample-note narrow">
@@ -313,30 +309,9 @@
       <p class="narrow careful">
         Careful wording matters here: <em>among participants with stronger prior coding experience, we could
         not reject equal performance with the data-scientist benchmark on coding and statistics.</em> Failing
-        to reject equality is not the same as proving it &mdash; but here the evidence leans toward similarity
-        (see the Bayes factors below). This is an observed pattern by experience level; the experiment does
-        not establish that prior coding <em>caused</em> the larger benefit.
+        to reject equality is not the same as proving it. This is an observed pattern by experience level; the
+        experiment does not establish that prior coding <em>caused</em> the larger benefit.
       </p>
-      <details class="details-note">
-        <summary>Competent coders: exact estimates &amp; Bayes factors</summary>
-        <div class="note-body">
-          <p>A <strong>Bayes factor</strong> below 1 quantifies evidence <em>for</em> the null hypothesis of no
-          difference. For competent coders versus the benchmark, the Bayes factors were 0.25 (coding) and 0.37
-          (statistics) &mdash; evidence favoring similarity, not merely an inability to detect a difference.</p>
-          <table class="data-table">
-            <caption>Competent coders (treatment group), relative to the data-scientist benchmark.</caption>
-            <thead><tr><th scope="col">Task</th><th scope="col">Treatment level</th><th scope="col">Effect vs. control</th><th scope="col">95% CI</th><th scope="col">vs. benchmark</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Coding</th><td>&minus;0.05</td><td>+0.51</td><td>[0.38, 0.64]</td><td>not rejected (BF&nbsp;0.25)</td></tr>
-              <tr><th scope="row">Statistics</th><td>&minus;0.05</td><td>+0.16</td><td>[0.08, 0.23]</td><td>not rejected (BF&nbsp;0.37)</td></tr>
-              <tr><th scope="row">Prediction</th><td>&minus;0.19</td><td>+0.27</td><td>[0.13, 0.40]</td><td>still below benchmark</td></tr>
-            </tbody>
-          </table>
-          <p>Category labels are the paper&rsquo;s: <em>Never coded</em>, <em>Basic coding</em>, and
-          <em>Competent coder</em>. Per-person counts by category: never coded 146, basic 172, competent 168.</p>
-          <p class="src">Source: Paper Figure 2 &amp; Section 2.2. Reproduced from <code>computed_objects/experimental_data.csv</code> (<code>know_code</code>).</p>
-        </div>
-      </details>
     </article>
 
     <!-- Finding 4 -->

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg class="chart" viewBox="0 0 360 340" width="100%" preserveAspectRatio="xMidYMid meet" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="t91044 d91618">
+<svg class="chart" viewBox="0 0 360 340" width="100%" preserveAspectRatio="xMidYMid meet" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="t69928 d55928">
   <style>
     .chart { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
     .ink   { fill: #1b1b1a; }
@@ -14,18 +14,5 @@
     .val   { fill: #1b1b1a; font-weight: 600; }
     .dot-fill { fill: #a6392e; stroke: #1b1b1a; stroke-width: 1; }
     .dot-open { fill: #ffffff; stroke: #1b1b1a; stroke-width: 1.5; }
-    @media (prefers-color-scheme: dark) {
-      .ink, .val { fill: #ece9e2; }
-      .muted { fill: #a7a49b; }
-      .axis  { stroke: #4a4a45; }
-      .grid  { stroke: #35352f; }
-      .bench { stroke: #ece9e2; }
-      .bar-control   { fill: #7fa2b4; }
-      .bar-treatment { fill: #e0796b; }
-      .bar-stroke    { stroke: #ece9e2; }
-      .err   { stroke: #ece9e2; }
-      .dot-fill { fill: #e0796b; stroke: #ece9e2; }
-      .dot-open { fill: #14140f; stroke: #ece9e2; }
-    }
   </style>
-<title id="t91044">Statistics: effect by prior coding experience</title><desc id="d91618">Horizontal bars for the statistics task by prior coding experience, relative to the data-scientist benchmark at zero. Never coded: control -0.44, treatment -0.13; Basic coding: control -0.35, treatment -0.18; Competent coder: control -0.21, treatment -0.05.</desc><text x="100" y="24" text-anchor="start" class="ink" font-size="13.5" font-weight="700">Statistics</text><line x1="108.0" y1="44" x2="108.0" y2="294" class="grid"/><text x="108.0" y="312" text-anchor="middle" class="muted" font-size="11">-1</text><line x1="213.5" y1="44" x2="213.5" y2="294" class="grid"/><text x="213.5" y="312" text-anchor="middle" class="muted" font-size="11">-0.5</text><line x1="318.9" y1="44" x2="318.9" y2="294" class="bench"/><text x="318.9" y="312" text-anchor="middle" class="muted" font-size="11">0</text><text x="100" y="81.66666666666666" text-anchor="end" class="ink" font-size="11.5">Never coded</text><text x="100" y="95.66666666666666" text-anchor="end" class="muted" font-size="10">+31 pts</text><rect x="225.3" y="69.7" width="93.6" height="15" class="bar-control bar-stroke"/><rect x="290.6" y="86.7" width="28.3" height="15" class="bar-treatment bar-stroke"/><text x="100" y="165.0" text-anchor="end" class="ink" font-size="11.5">Basic coding</text><text x="100" y="179.0" text-anchor="end" class="muted" font-size="10">+17 pts</text><rect x="245.3" y="153.0" width="73.6" height="15" class="bar-control bar-stroke"/><rect x="280.7" y="170.0" width="38.2" height="15" class="bar-treatment bar-stroke"/><text x="100" y="248.33333333333331" text-anchor="end" class="ink" font-size="11.5">Competent coder</text><text x="100" y="262.3333333333333" text-anchor="end" class="muted" font-size="10">+16 pts</text><rect x="275.3" y="236.3" width="43.7" height="15" class="bar-control bar-stroke"/><rect x="308.4" y="253.3" width="10.5" height="15" class="bar-treatment bar-stroke"/></svg>
+<title id="t69928">Statistics: effect by prior coding experience</title><desc id="d55928">Horizontal bars for the statistics task by prior coding experience, relative to the data-scientist benchmark at zero. Never coded: control -0.44, treatment -0.13; Basic coding: control -0.35, treatment -0.18; Competent coder: control -0.21, treatment -0.05.</desc><text x="100" y="24" text-anchor="start" class="ink" font-size="13.5" font-weight="700">Statistics</text><line x1="108.0" y1="44" x2="108.0" y2="294" class="grid"/><text x="108.0" y="312" text-anchor="middle" class="muted" font-size="11">-1</text><line x1="213.5" y1="44" x2="213.5" y2="294" class="grid"/><text x="213.5" y="312" text-anchor="middle" class="muted" font-size="11">-0.5</text><line x1="318.9" y1="44" x2="318.9" y2="294" class="bench"/><text x="318.9" y="312" text-anchor="middle" class="muted" font-size="11">0</text><text x="100" y="81.66666666666666" text-anchor="end" class="ink" font-size="11.5">Never coded</text><text x="100" y="95.66666666666666" text-anchor="end" class="muted" font-size="10">+31 pts</text><rect x="225.3" y="69.7" width="93.6" height="15" class="bar-control bar-stroke"/><rect x="290.6" y="86.7" width="28.3" height="15" class="bar-treatment bar-stroke"/><text x="100" y="165.0" text-anchor="end" class="ink" font-size="11.5">Basic coding</text><text x="100" y="179.0" text-anchor="end" class="muted" font-size="10">+17 pts</text><rect x="245.3" y="153.0" width="73.6" height="15" class="bar-control bar-stroke"/><rect x="280.7" y="170.0" width="38.2" height="15" class="bar-treatment bar-stroke"/><text x="100" y="248.33333333333331" text-anchor="end" class="ink" font-size="11.5">Competent coder</text><text x="100" y="262.3333333333333" text-anchor="end" class="muted" font-size="10">+16 pts</text><rect x="275.3" y="236.3" width="43.7" height="15" class="bar-control bar-stroke"/><rect x="308.4" y="253.3" width="10.5" height="15" class="bar-treatment bar-stroke"/></svg>

@@ -4,7 +4,7 @@ Generate self-contained, accessible, theme-aware SVG charts from data/figures.js
 
 Design goals (see project brief):
 - Simple, static SVG: responsive via viewBox, no JavaScript required.
-- Theme-aware: internal <style> reacts to prefers-color-scheme (light/dark).
+- Single light theme, matching the site (no dark-mode variants).
 - Accessible: role="img" with <title>/<desc>; series distinguished by direct
   text labels and value labels, never by color alone.
 - Horizontal layout so bars/labels stay legible on narrow mobile screens.
@@ -40,19 +40,6 @@ STYLE = """
     .val   { fill: #1b1b1a; font-weight: 600; }
     .dot-fill { fill: #a6392e; stroke: #1b1b1a; stroke-width: 1; }
     .dot-open { fill: #ffffff; stroke: #1b1b1a; stroke-width: 1.5; }
-    @media (prefers-color-scheme: dark) {
-      .ink, .val { fill: #ece9e2; }
-      .muted { fill: #a7a49b; }
-      .axis  { stroke: #4a4a45; }
-      .grid  { stroke: #35352f; }
-      .bench { stroke: #ece9e2; }
-      .bar-control   { fill: #7fa2b4; }
-      .bar-treatment { fill: #e0796b; }
-      .bar-stroke    { stroke: #ece9e2; }
-      .err   { stroke: #ece9e2; }
-      .dot-fill { fill: #e0796b; stroke: #ece9e2; }
-      .dot-open { fill: #14140f; stroke: #ece9e2; }
-    }
   </style>
 """
 
