@@ -1,0 +1,21 @@
+{
+  "_comment": "For every number shown on the website, this file records where it comes from. Paper = the latest public PDF (https://www.emmawiles.com/storage/reskill.pdf). Repo files are relative to the repository root.",
+  "sources": {
+    "paper_pdf_latest": "https://www.emmawiles.com/storage/reskill.pdf",
+    "paper_pdf_repo_draft": "writeup/reskill (9).pdf (OLDER DRAFT — titled 'Generative AI as a Temporary Exoskeleton for Upskilling Knowledge Workers'; superseded by the latest public PDF)",
+    "repository": "https://github.com/emmawiles/Upskill_Public",
+    "main_dataset": "computed_objects/experimental_data.csv (built by analysis/co_experiment_data.R)",
+    "full_cohort_dataset": "data/complete_data_all.dta"
+  },
+  "claims": [
+    {"claim": "986 consultants randomized in the RCT", "source": "Paper Introduction ('a randomized controlled trial (RCT) involving 986 consultants') and Methods; Table 1 first row", "repo": "writeup/stable/balance_table_small.tex; data/complete_data_all.dta", "note": "Table 1 header prints 983 while the two arms (493+493) sum to 986; text uses 986. Flagged for author review."},
+    {"claim": "573 began the survey; used as N in the latest abstract", "source": "Paper abstract (N = 573) and Table 1 ('began survey' 573)", "repo": "writeup/stable/balance_table_small.tex"},
+    {"claim": "487 participants in the analysis sample (submitted both tasks)", "source": "Paper Methods / Results ('For the 487 participants who submitted output')", "repo": "computed_objects/experimental_data.csv (treatment_arm in {0,1})"},
+    {"claim": "Per-task samples: coding 300, statistics 330, prediction 298", "source": "Paper Table 1 and Figure 1 note", "repo": "computed_objects/experimental_data.csv"},
+    {"claim": "44 data scientists set the benchmark (normalized to 0)", "source": "Paper Results and Methods", "repo": "data/complete_data_DS.dta"},
+    {"claim": "Coding +49pp [0.42,0.56]; Statistics +20pp [0.15,0.25]; Prediction +17pp [0.09,0.25]", "source": "Paper Figure 1 and Section 2.1", "repo": "computed_objects/experimental_data.csv, columns CodingProcessGradeRelativeNorm, StatsOverallRelativeNorm, PSMAEGradeAdjusted, treatment_arm; reproduced by scripts/verify_from_source.py", "transformation": "Group means (already DS-normalized) for treatment_arm 0/1; treatment effect and 95% CI from OLS with HC0 robust SEs. Prediction score = -1 x PSMAEGradeAdjusted."},
+    {"claim": "Figure 2: effects by prior coding experience; competent coders 5pp below benchmark on coding and statistics; Bayes factors 0.25 (coding) and 0.37 (statistics)", "source": "Paper Figure 2 and Section 2.2", "repo": "computed_objects/experimental_data.csv, column know_code; reproduced by scripts/verify_from_source.py", "transformation": "Means and OLS treatment effects within each know_code level; classical 95% CIs matching the paper's Figure 2. Bayes factors quoted from paper text."},
+    {"claim": "Figure 3: no evidence of improved unaided knowledge; TEs -7.7 to +4.8pp; F(5,198)=0.83, p=0.531; Bayes factors 0.10/0.18/0.50/0.13/0.62", "source": "Paper Figure 3, Section 2.3, and Appendix Table B14", "repo": "writeup/tables/learning.tex; data/complete_data_all.dta, columns DSKnowledgeQ1Correct..Q5Correct; reproduced by scripts/verify_from_source.py", "transformation": "Full-sample control/treatment shares and OLS treatment effects with HC0 robust SEs. These match the plotted bars and the paper text.", "note": "The latest PDF's Figure 3 note lists per-question Ns (323/270/270/151/270) from a task-started subsample, but the plotted bars and text statistics correspond to the full sample (573/399/418/253/408). Flagged for author review."},
+    {"claim": "Figure 4: treated workers more confident GPT-4 could solve problems it cannot; significant for all four 'cannot do' questions", "source": "Paper Figure 4, Section 2.4, and Appendix Table B8", "repo": "writeup/callibration.tex", "transformation": "Treatment-effect coefficients (percentage points of confidence 0-100) and control base rates quoted directly from Table B8; 95% CIs computed as estimate +/- 1.96 x SE.", "note": "Exploratory analysis, not pre-registered."}
+  ]
+}

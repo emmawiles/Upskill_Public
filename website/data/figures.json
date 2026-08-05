@@ -1,0 +1,73 @@
+{
+  "_comment": "All values verified against the paper and reproduced from repository data. See provenance.json for the source of each number and ../VERIFICATION.md for the full audit. Do not edit values by hand without updating provenance and re-running scripts/verify_from_source.py.",
+  "meta": {
+    "title": "Generative AI and the Temporary Upskilling of Knowledge Workers",
+    "status": "Forthcoming in Nature Human Behaviour",
+    "n_randomized": 986,
+    "n_began_survey": 573,
+    "n_analysis_sample": 487,
+    "n_data_scientists": 44,
+    "benchmark_note": "Scores are normalized so that 0 equals the average performance of 44 BCG data scientists working without generative AI. A score of -1 means no points were earned on the task.",
+    "paper_url": "https://www.emmawiles.com/storage/reskill.pdf",
+    "repo_url": "https://github.com/emmawiles/Upskill_Public"
+  },
+  "figure1_main_effects": {
+    "source": "Paper Figure 1; reproduced from computed_objects/experimental_data.csv via scripts/verify_from_source.py",
+    "outcome": "Task performance, normalized so 0 = average of 44 data scientists",
+    "tasks": [
+      {"task": "Coding", "control": -0.629, "treatment": -0.140, "te": 0.490, "te_ci": [0.419, 0.560], "se": 0.036, "p": "<0.001", "n": 300, "n_treatment": 167, "n_control": 133},
+      {"task": "Statistics", "control": -0.323, "treatment": -0.123, "te": 0.201, "te_ci": [0.150, 0.252], "se": 0.026, "p": "<0.001", "n": 330, "n_treatment": 176, "n_control": 154},
+      {"task": "Prediction", "control": -0.432, "treatment": -0.260, "te": 0.172, "te_ci": [0.090, 0.253], "se": 0.042, "p": "<0.001", "n": 298, "n_treatment": 162, "n_control": 136}
+    ]
+  },
+  "figure2_by_coding": {
+    "source": "Paper Figure 2; reproduced from computed_objects/experimental_data.csv via scripts/verify_from_source.py",
+    "outcome": "Task performance by self-reported prior coding experience, normalized so 0 = average of 44 data scientists",
+    "note": "Confidence intervals use classical (OLS) standard errors, matching the paper's Figure 2. Per-person counts by category (each person did two tasks): Never coded (Control 67, Treatment 79); Basic coding (Control 82, Treatment 90); Competent coder (Control 76, Treatment 92).",
+    "groups": ["Never coded", "Basic coding", "Competent coder"],
+    "tasks": {
+      "Coding": [
+        {"group": "Never coded", "control": -0.708, "treatment": -0.161, "te": 0.547, "te_ci": [0.429, 0.665]},
+        {"group": "Basic coding", "control": -0.637, "treatment": -0.221, "te": 0.416, "te_ci": [0.297, 0.535]},
+        {"group": "Competent coder", "control": -0.557, "treatment": -0.048, "te": 0.508, "te_ci": [0.368, 0.648], "bayes_factor_vs_ds": 0.25, "reject_equal_to_ds": false}
+      ],
+      "Statistics": [
+        {"group": "Never coded", "control": -0.444, "treatment": -0.134, "te": 0.311, "te_ci": [0.212, 0.409]},
+        {"group": "Basic coding", "control": -0.349, "treatment": -0.181, "te": 0.168, "te_ci": [0.089, 0.247]},
+        {"group": "Competent coder", "control": -0.207, "treatment": -0.050, "te": 0.156, "te_ci": [0.079, 0.234], "bayes_factor_vs_ds": 0.37, "reject_equal_to_ds": false}
+      ],
+      "Prediction": [
+        {"group": "Never coded", "control": -0.422, "treatment": -0.331, "te": 0.091, "te_ci": [-0.081, 0.263]},
+        {"group": "Basic coding", "control": -0.420, "treatment": -0.277, "te": 0.143, "te_ci": [0.016, 0.271]},
+        {"group": "Competent coder", "control": -0.459, "treatment": -0.193, "te": 0.266, "te_ci": [0.143, 0.389], "reject_equal_to_ds": true}
+      ]
+    }
+  },
+  "figure3_learning": {
+    "source": "Paper Figure 3 and Appendix Table B14 (writeup/tables/learning.tex); reproduced from data/complete_data_all.dta via scripts/verify_from_source.py",
+    "outcome": "Share of workers answering each post-experiment technical question correctly, WITHOUT ChatGPT",
+    "joint_test": "F(5,198) = 0.83, p = 0.531 (no joint treatment effect)",
+    "estimates_note": "Individual treatment effects range from -7.7 to +4.8 percentage points; none is individually significant at p<0.05. Bayes factors below 1 indicate evidence for the null of no difference.",
+    "questions": [
+      {"q": "Q1", "label": "Filtering rows in Python (select all)", "topic": "Coding", "control": 0.35, "treatment": 0.36, "te_pp": 0.8, "p": 0.827, "n": 573, "bayes_factor": 0.10},
+      {"q": "Q2", "label": "Probability of 3 heads in 3 coin tosses (multiple choice)", "topic": "Statistics", "control": 0.91, "treatment": 0.94, "te_pp": 2.7, "p": 0.319, "n": 399, "bayes_factor": 0.18},
+      {"q": "Q3", "label": "Distance-based algorithms and scaling (true/false)", "topic": "Machine learning", "control": 0.73, "treatment": 0.78, "te_pp": 4.8, "p": 0.075, "n": 418, "bayes_factor": 0.50},
+      {"q": "Q4", "label": "Techniques for handling missing categorical data (select all)", "topic": "Machine learning", "control": 0.80, "treatment": 0.79, "te_pp": -0.6, "p": 0.902, "n": 253, "bayes_factor": 0.13},
+      {"q": "Q5", "label": "Category of a prediction problem (select all)", "topic": "Prediction", "control": 0.78, "treatment": 0.70, "te_pp": -7.7, "p": 0.057, "n": 408, "bayes_factor": 0.62}
+    ]
+  },
+  "figure4_calibration": {
+    "source": "Paper Figure 4 and Appendix Table B8 (writeup/callibration.tex)",
+    "outcome": "Treatment effect on workers' stated confidence (0-100) that GPT-4 can answer each question correctly, measured AFTER the experiment",
+    "interpretation": "Positive values mean treated workers were MORE confident GPT-4 could answer. For questions GPT-4 CANNOT answer, higher confidence means WORSE calibration. Control-group base rates were 65-78%. This analysis was exploratory and not pre-registered.",
+    "questions": [
+      {"q": "Q1", "label": "Build a rotating US flag in HTML/JavaScript canvas", "gpt4": "can", "te_pp": 1.4, "se": 2.0, "ci": [-2.5, 5.3], "p": 0.480, "control_base": 75.82, "n": 454, "significant": false},
+      {"q": "Q2", "label": "Which cities have an even-numbered population?", "gpt4": "cannot", "te_pp": 6.0, "se": 2.35, "ci": [1.4, 10.6], "p": 0.012, "control_base": 73.66, "n": 475, "significant": true},
+      {"q": "Q3", "label": "Split a $10 bill evenly across items with different prices", "gpt4": "cannot", "te_pp": 5.6, "se": 2.43, "ci": [0.8, 10.3], "p": 0.024, "control_base": 74.75, "n": 473, "significant": true},
+      {"q": "Q4", "label": "Help with crossword clues", "gpt4": "can", "te_pp": 6.3, "se": 2.29, "ci": [1.8, 10.7], "p": 0.007, "control_base": 69.08, "n": 464, "significant": true},
+      {"q": "Q5", "label": "Who lost the Super Bowl two years after Pan-Am's bankruptcy?", "gpt4": "can", "te_pp": 0.3, "se": 2.35, "ci": [-4.3, 4.9], "p": 0.899, "control_base": 77.93, "n": 465, "significant": false},
+      {"q": "Q6", "label": "Write the word “hello” as ASCII art with # and _", "gpt4": "cannot", "te_pp": 9.6, "se": 2.48, "ci": [4.8, 14.5], "p": "<0.001", "control_base": 67.14, "n": 431, "significant": true},
+      {"q": "Q7", "label": "Best next move for O in a game of tic-tac-toe", "gpt4": "cannot", "te_pp": 5.4, "se": 2.58, "ci": [0.3, 10.4], "p": 0.039, "control_base": 64.93, "n": 451, "significant": true}
+    ]
+  }
+}

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generative AI as a Temporary Exoskeleton for Upskilling Knowledge Workers</title>
+<meta name="description" content="A randomized experiment with 986 consultants finds that generative AI can temporarily expand what knowledge workers can do — but using AI to perform new tasks is not the same as learning the underlying skills.">
+<meta property="og:title" content="Generative AI as a Temporary Exoskeleton for Upskilling Knowledge Workers">
+<meta property="og:description" content="AI can temporarily expand workers' capabilities, but using AI to perform new tasks is not the same thing as learning the underlying skills.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦾</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-title">Temporary Exoskeleton</span>
+      <span class="brand-sub">Generative AI &amp; Knowledge Workers</span>
+    </a>
+    <nav class="nav-desktop" aria-label="Primary">
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#study">Study</a></li>
+        <li><a href="#findings">Findings</a></li>
+        <li><a href="#workers">For Workers</a></li>
+        <li><a href="#organizations">For Organizations</a></li>
+        <li><a class="nav-cta" href="#paper">Academic Paper</a></li>
+      </ul>
+    </nav>
+    <details class="nav-mobile">
+      <summary aria-label="Open navigation menu">Menu</summary>
+      <nav aria-label="Primary mobile">
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#study">Study</a></li>
+          <li><a href="#findings">Findings</a></li>
+          <li><a href="#workers">Implications for Workers</a></li>
+          <li><a href="#organizations">Implications for Organizations</a></li>
+          <li><a class="nav-cta" href="#paper">Academic Paper</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main">
+<a id="top"></a>
+
+<!-- ================= HERO ================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <p class="eyebrow">Forthcoming in <em>Nature Human Behaviour</em></p>
+    <h1 id="hero-title">Generative AI as a Temporary Exoskeleton for Upskilling Knowledge Workers</h1>
+
+    <ul class="authors" aria-label="Authors">
+      <li><span class="author">Emma Wiles</span><sup>1</sup></li>
+      <li><span class="author">Lisa Krayer</span><sup>2</sup></li>
+      <li><span class="author">Mohamed Abbadi</span><sup>2</sup></li>
+      <li><span class="author">Urvi Awasthi</span><sup>2</sup></li>
+      <li><span class="author">Ryan Kennedy</span><sup>2</sup></li>
+      <li><span class="author">Pamela Mishkin</span><sup>3</sup></li>
+      <li><span class="author">Daniel Sack</span><sup>2</sup></li>
+      <li><span class="author">Francois Candelon</span><sup>2</sup></li>
+    </ul>
+    <ol class="affiliations" aria-label="Affiliations">
+      <li><sup>1</sup> Boston University, Boston, MA</li>
+      <li><sup>2</sup> BCG, Boston, MA</li>
+      <li><sup>3</sup> Economic Impacts Research, OpenAI, San Francisco, CA</li>
+    </ol>
+
+    <p class="lede">
+      Consultants given access to and training in ChatGPT performed substantially better on
+      unfamiliar data-science tasks. But the gains worked like an exoskeleton: the technology
+      expanded what these skilled professionals could do while they used it, and once it was
+      removed, we found no corresponding improvement in their own technical knowledge.
+    </p>
+
+    <div class="stat-row" role="group" aria-label="Headline results: treatment effect on task performance">
+      <div class="stat">
+        <span class="stat-num">+49<span class="stat-unit">pp</span></span>
+        <span class="stat-label">Coding</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">+20<span class="stat-unit">pp</span></span>
+        <span class="stat-label">Statistics</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">+17<span class="stat-unit">pp</span></span>
+        <span class="stat-label">Prediction</span>
+      </div>
+    </div>
+    <p class="stat-caption">
+      Improvement of the AI-trained group over the control group on three unfamiliar tasks,
+      in percentage points (pp). Scores are measured against a benchmark set by professional data scientists.
+    </p>
+
+    <blockquote class="thesis">
+      AI can temporarily expand workers&rsquo; capabilities, but using AI to perform new tasks is not
+      the same thing as learning the underlying skills.
+    </blockquote>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://www.emmawiles.com/storage/reskill.pdf" target="_blank" rel="noopener">Read the academic paper (PDF)</a>
+      <a class="btn btn-secondary" href="https://github.com/emmawiles/Upskill_Public" target="_blank" rel="noopener">View the public repository</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OVERVIEW ================= -->
+<section id="overview" class="section" aria-labelledby="overview-h">
+  <div class="wrap narrow">
+    <p class="kicker">Overview</p>
+    <h2 id="overview-h">Two different things we call &ldquo;upskilling&rdquo;</h2>
+    <p>
+      We conducted a randomized experiment involving <strong>986 consultants</strong> at Boston Consulting
+      Group (BCG), a global management consulting firm. The study asks a specific question: can generative AI
+      help knowledge workers take on technical work that is normally outside their skill set&mdash;and if it
+      can, does that experience leave them with lasting skills? The paper is forthcoming in
+      <em>Nature Human Behaviour</em>.
+    </p>
+    <p>The results turn on a distinction the paper draws carefully:</p>
+
+    <div class="two-col">
+      <div class="concept-card">
+        <h3>AI-enabled task capability</h3>
+        <p>What a worker can accomplish <em>while using</em> the technology. In this study, AI clearly
+        expanded it: treated workers completed unfamiliar data-science tasks far better than the control group.</p>
+      </div>
+      <div class="concept-card">
+        <h3>Durable, independent knowledge</h3>
+        <p>What a worker knows and can apply <em>when the technology is unavailable</em>. Here, immediately
+        after the experiment and without ChatGPT, we found no evidence that the treated group knew more than the control group.</p>
+      </div>
+    </div>
+
+    <p>
+      These are not meant as universal, mutually exclusive categories. The point is narrower and empirical:
+      in this setting we see strong evidence of the first, and no evidence of a short-run improvement in the second.
+    </p>
+
+    <p class="analogy">
+      The paper uses the analogy of an <strong>exoskeleton</strong>: the technology can expand what someone is
+      able to do while using it, even if the underlying capability does not persist when the technology is removed.
+    </p>
+  </div>
+</section>
+
+<!-- ================= STUDY ================= -->
+<section id="study" class="section section-alt" aria-labelledby="study-h">
+  <div class="wrap">
+    <p class="kicker">The Study</p>
+    <h2 id="study-h">How the experiment worked</h2>
+    <p class="section-intro narrow">
+      A <strong>randomized experiment</strong> assigns people to groups by chance, so that differences in
+      outcomes can be attributed to the treatment rather than to who happened to be in each group.
+    </p>
+
+    <ol class="flow" aria-label="Study flow">
+      <li><span class="flow-n">1</span><p><strong>986 consultants</strong> entered the experiment &mdash; skilled knowledge workers whose expertise is in analysis and problem-solving, most of whom reported little or no prior coding experience.</p></li>
+      <li><span class="flow-n">2</span><p>Each participant was <strong>randomly assigned</strong> to a treatment or a control condition.</p></li>
+      <li><span class="flow-n">3</span><p>The <strong>treatment</strong> group received access to and a short training in <strong>ChatGPT</strong> (GPT-4).</p></li>
+      <li><span class="flow-n">4</span><p>The <strong>control</strong> group received a short training in conventional online resources (Google, Stack Overflow, Khan Academy).</p></li>
+      <li><span class="flow-n">5</span><p>Each participant attempted <strong>two of three</strong> unfamiliar 90-minute data-science tasks.</p></li>
+      <li><span class="flow-n">6</span><p>Performance was scored against a <strong>benchmark set by 44 BCG data scientists</strong> who did the tasks without AI.</p></li>
+      <li><span class="flow-n">7</span><p>Everyone answered <strong>post-experiment technical questions without ChatGPT</strong>.</p></li>
+    </ol>
+
+    <p class="sample-note narrow">
+      Of the 986 randomized, 573 began the survey and <strong>487</strong> submitted gradable output for both tasks &mdash; the main
+      analysis sample. The number of participants differs by task (coding&nbsp;300, statistics&nbsp;330, prediction&nbsp;298),
+      so not every participant appears in every estimate.
+    </p>
+
+    <h3 class="subhead">The three tasks</h3>
+    <p class="narrow">Each task was built by BCG data scientists with OpenAI&rsquo;s Economic Impacts Research team, and
+      deliberately designed so that <strong>GPT-4 could not simply solve it on its own</strong> &mdash; correct answers required human input at multiple steps.</p>
+
+    <div class="task-cards">
+      <article class="task-card">
+        <h4>Coding</h4>
+        <p>Write Python to clean, merge, and filter two messy datasets and compute a result.</p>
+        <details>
+          <summary>Learn more</summary>
+          <p>Participants worked in Google Colab and were guided to read the data, split combined string
+          fields, handle types, detect and remove junk and null values, join the tables, and compute a
+          metric. Because almost no one reached a fully correct answer in 90 minutes, the primary score is
+          the <strong>share of ten defined steps completed correctly</strong>, graded against a rubric.</p>
+        </details>
+      </article>
+      <article class="task-card">
+        <h4>Statistical understanding</h4>
+        <p>Fact-check AI&rsquo;s statistical recommendations and interpret model output.</p>
+        <details>
+          <summary>Learn more</summary>
+          <p>Participants reviewed a flawed analysis plan for a mortgage-prediction model, interpreted
+          residual plots, applied statistical metrics, and computed a situational probability. Answers mixed
+          multiple-choice and open-ended responses, graded against a rubric with complexity weights set by
+          senior data scientists. Free-response items were graded with a validated GPT-4 pipeline.</p>
+        </details>
+      </article>
+      <article class="task-card">
+        <h4>Prediction</h4>
+        <p>Build a predictive model from historical football-match data and assess its reliability.</p>
+        <details>
+          <summary>Learn more</summary>
+          <p>This open-ended task asked participants to quantify how predictable each match was and to
+          identify the most surprising result. Because there is no single ground truth, each submission was
+          scored by its <strong>distance from the data scientists&rsquo; own answers</strong> (minimum absolute error,
+          reported so that 0 equals the benchmark and &minus;1 means no agreement).</p>
+        </details>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINDINGS ================= -->
+<section id="findings" class="section" aria-labelledby="findings-h">
+  <div class="wrap">
+    <p class="kicker">Findings</p>
+    <h2 id="findings-h">Five findings</h2>
+    <p class="section-intro narrow">
+      A note on the benchmark: scores are <strong>normalized</strong> so that <strong>0 is the average of the
+      44 data scientists</strong>. Negative numbers mean below that benchmark; the treatment effect is the gap
+      between the treatment and control groups. A <strong>95% confidence interval</strong> is the range that
+      would contain the true effect in 95% of repeated experiments &mdash; when it excludes 0, the effect is
+      statistically significant.
+    </p>
+
+    <!-- Finding 1 -->
+    <article class="finding">
+      <div class="finding-head"><span class="finding-n">1</span>
+        <h3>AI substantially improved performance on unfamiliar technical work</h3></div>
+      <p class="takeaway">Treated workers scored well above the control group on all three tasks:
+        <strong>+49</strong> (coding), <strong>+20</strong> (statistics), and <strong>+17</strong> (prediction)
+        percentage points.</p>
+      <figure class="chart-fig">
+        <img src="assets/charts/fig1_main_effects.svg" width="720" height="430" loading="lazy"
+          alt="Grouped bar chart of task performance relative to the data-scientist benchmark at zero. Coding: control −0.63, treatment −0.14 (a 49-point gain). Statistics: control −0.32, treatment −0.12 (a 20-point gain). Prediction: control −0.43, treatment −0.26 (a 17-point gain). Both groups remain below the benchmark on every task.">
+        <figcaption>
+          <strong>Figure 1.</strong> Performance relative to data scientists (0 = benchmark).
+          Bars show group means; the treatment effect is the gap between them.
+        </figcaption>
+      </figure>
+      <details class="details-note">
+        <summary>How to read this &amp; exact estimates</summary>
+        <div class="note-body">
+          <p>Zero is the data-scientist average. Because scores are normalized this way, both groups sit
+          below zero on every task; treatment moves the group closer to the benchmark. The coding outcome is
+          the share of correct steps, statistics is the weighted share of points, and prediction is
+          &minus;1&times;mean absolute error from the benchmark answers.</p>
+          <table class="data-table">
+            <caption>Treatment effect (treatment minus control), Huber&ndash;White robust standard errors.</caption>
+            <thead><tr><th scope="col">Task</th><th scope="col">Control</th><th scope="col">Treatment</th><th scope="col">Effect</th><th scope="col">95% CI</th><th scope="col">N</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Coding</th><td>&minus;0.63</td><td>&minus;0.14</td><td>+0.49</td><td>[0.42, 0.56]</td><td>300</td></tr>
+              <tr><th scope="row">Statistics</th><td>&minus;0.32</td><td>&minus;0.12</td><td>+0.20</td><td>[0.15, 0.25]</td><td>330</td></tr>
+              <tr><th scope="row">Prediction</th><td>&minus;0.43</td><td>&minus;0.26</td><td>+0.17</td><td>[0.09, 0.25]</td><td>298</td></tr>
+            </tbody>
+          </table>
+          <p class="src">Source: Paper Figure 1 &amp; Section 2.1. Reproduced from <code>computed_objects/experimental_data.csv</code>.
+          Sample: participants who submitted work for each task.</p>
+        </div>
+      </details>
+    </article>
+
+    <!-- Finding 2 -->
+    <article class="finding">
+      <div class="finding-head"><span class="finding-n">2</span>
+        <h3>Better performance did not, overall, close the gap with experts</h3></div>
+      <p class="takeaway">Treated workers narrowed the distance to the data-scientist benchmark
+        substantially, but on average they <strong>remained measurably below it on all three tasks</strong> &mdash;
+        we can statistically reject that they performed as well as the data scientists.</p>
+      <p class="narrow">In Figure 1, the treatment bars are much closer to zero than the control bars, yet
+        they do not reach it. The treated group averaged 14 points below the benchmark on coding, 12 below on
+        statistics, and sat at &minus;0.26 on prediction. AI made these consultants far more capable on
+        unfamiliar technical work; it did not turn them into data scientists.</p>
+      <details class="details-note">
+        <summary>Which gaps are statistically significant?</summary>
+        <div class="note-body">
+          <p>For all three tasks the 95% confidence interval for the treated group&rsquo;s distance from the
+          benchmark excludes zero, so we reject equality with the data scientists overall. That the groups
+          differ statistically does not mean the gap is large in every case &mdash; on statistics it is about
+          12 points &mdash; but the evidence points to a remaining gap, not to parity.</p>
+          <p class="src">Source: Paper Figure 1 &amp; Section 2.1&ndash;2.2.</p>
+        </div>
+      </details>
+    </article>
+
+    <!-- Finding 3 -->
+    <article class="finding">
+      <div class="finding-head"><span class="finding-n">3</span>
+        <h3>Existing foundational knowledge still mattered</h3></div>
+      <p class="takeaway">Among treated workers, those who already had <strong>prior coding experience</strong> came
+        closest to the benchmark. On coding and statistics, we could not reject that competent coders in the
+        treatment group performed <em>as well as</em> the data scientists.</p>
+      <figure class="chart-fig">
+        <div class="chart-grid">
+          <img src="assets/charts/fig2_coding.svg" width="360" height="340" loading="lazy"
+            alt="Coding task by prior experience. Treatment minus control: never coded +55, basic +42, competent coder +51 points. Competent coders in treatment reach −0.05, near the benchmark.">
+          <img src="assets/charts/fig2_statistics.svg" width="360" height="340" loading="lazy"
+            alt="Statistics task by prior experience. Treatment minus control: never coded +31, basic +17, competent coder +16 points. Competent coders in treatment reach −0.05, near the benchmark.">
+          <img src="assets/charts/fig2_prediction.svg" width="360" height="340" loading="lazy"
+            alt="Prediction task by prior experience. Treatment minus control: never coded +9 (not significant), basic +14, competent coder +27 points. All groups remain well below the benchmark.">
+        </div>
+        <figcaption>
+          <strong>Figure 2.</strong> Effect by self-reported prior coding experience, relative to data
+          scientists (0). Each panel is one task; bars are group means.
+        </figcaption>
+      </figure>
+      <p class="narrow careful">
+        Careful wording matters here: <em>among participants with stronger prior coding experience, we could
+        not reject equal performance with the data-scientist benchmark on coding and statistics.</em> Failing
+        to reject equality is not the same as proving it &mdash; but here the evidence leans toward similarity
+        (see the Bayes factors below). This is an observed pattern by experience level; the experiment does
+        not establish that prior coding <em>caused</em> the larger benefit.
+      </p>
+      <details class="details-note">
+        <summary>Competent coders: exact estimates &amp; Bayes factors</summary>
+        <div class="note-body">
+          <p>A <strong>Bayes factor</strong> below 1 quantifies evidence <em>for</em> the null hypothesis of no
+          difference. For competent coders versus the benchmark, the Bayes factors were 0.25 (coding) and 0.37
+          (statistics) &mdash; evidence favoring similarity, not merely an inability to detect a difference.</p>
+          <table class="data-table">
+            <caption>Competent coders (treatment group), relative to the data-scientist benchmark.</caption>
+            <thead><tr><th scope="col">Task</th><th scope="col">Treatment level</th><th scope="col">Effect vs. control</th><th scope="col">95% CI</th><th scope="col">vs. benchmark</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Coding</th><td>&minus;0.05</td><td>+0.51</td><td>[0.38, 0.64]</td><td>not rejected (BF&nbsp;0.25)</td></tr>
+              <tr><th scope="row">Statistics</th><td>&minus;0.05</td><td>+0.16</td><td>[0.08, 0.23]</td><td>not rejected (BF&nbsp;0.37)</td></tr>
+              <tr><th scope="row">Prediction</th><td>&minus;0.19</td><td>+0.27</td><td>[0.13, 0.40]</td><td>still below benchmark</td></tr>
+            </tbody>
+          </table>
+          <p>Category labels are the paper&rsquo;s: <em>Never coded</em>, <em>Basic coding</em>, and
+          <em>Competent coder</em>. Per-person counts by category: never coded 146, basic 172, competent 168.</p>
+          <p class="src">Source: Paper Figure 2 &amp; Section 2.2. Reproduced from <code>computed_objects/experimental_data.csv</code> (<code>know_code</code>).</p>
+        </div>
+      </details>
+    </article>
+
+    <!-- Finding 4 -->
+    <article class="finding">
+      <div class="finding-head"><span class="finding-n">4</span>
+        <h3>Improved performance did not become better unaided knowledge</h3></div>
+      <p class="takeaway"><strong>We found no evidence of improved unaided technical knowledge immediately after
+        the experiment.</strong> On five technical questions answered without ChatGPT, the treatment and control
+        groups performed essentially the same.</p>
+      <figure class="chart-fig">
+        <img src="assets/charts/fig3_learning.svg" width="720" height="520" loading="lazy"
+          alt="Grouped bar chart of the share answering five post-experiment questions correctly, without ChatGPT. Control and treatment shares are close on every question, ranging from about 0.35 to 0.94. No difference is statistically significant.">
+        <figcaption>
+          <strong>Figure 3.</strong> Share answering each post-experiment question correctly, without ChatGPT.
+          A joint test finds no treatment effect: F(5,&nbsp;198)&nbsp;=&nbsp;0.83, p&nbsp;=&nbsp;0.531.
+        </figcaption>
+      </figure>
+      <p class="narrow">
+        Both groups answered these questions on their own, after the tasks were over. The individual
+        differences were small (from &minus;7.7 to +4.8 percentage points) and none was statistically
+        significant. This does <em>not</em> mean participants learned nothing, that no individual learned
+        anything, or that AI prevents learning &mdash; only that, in this setting and measured immediately,
+        the treatment produced no detectable gain in independent knowledge.
+      </p>
+      <details class="details-note">
+        <summary>Question-by-question estimates &amp; Bayes factors</summary>
+        <div class="note-body">
+          <table class="data-table">
+            <caption>Share correct by group; treatment effect in percentage points (pp).</caption>
+            <thead><tr><th scope="col">Question</th><th scope="col">Control</th><th scope="col">Treatment</th><th scope="col">Effect (pp)</th><th scope="col">p</th><th scope="col">Bayes factor</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Filtering rows in Python</th><td>0.35</td><td>0.36</td><td>+0.8</td><td>0.83</td><td>0.10</td></tr>
+              <tr><th scope="row">Probability of 3 heads in 3 tosses</th><td>0.91</td><td>0.94</td><td>+2.7</td><td>0.32</td><td>0.18</td></tr>
+              <tr><th scope="row">Distance-based algorithms &amp; scaling</th><td>0.73</td><td>0.78</td><td>+4.8</td><td>0.075</td><td>0.50</td></tr>
+              <tr><th scope="row">Handling missing categorical data</th><td>0.80</td><td>0.79</td><td>&minus;0.6</td><td>0.90</td><td>0.13</td></tr>
+              <tr><th scope="row">Category of a prediction problem</th><td>0.78</td><td>0.70</td><td>&minus;7.7</td><td>0.057</td><td>0.62</td></tr>
+            </tbody>
+          </table>
+          <p>Bayes factors below 1 give moderate evidence <em>for</em> the null of no difference. The joint
+          test across all five questions is not significant.</p>
+          <p class="src">Source: Paper Figure 3, Section 2.3 &amp; Appendix Table B14 (<code>writeup/tables/learning.tex</code>).
+          Reproduced from <code>data/complete_data_all.dta</code>. Sample size varies by question (253&ndash;573).</p>
+        </div>
+      </details>
+    </article>
+
+    <!-- Finding 5 -->
+    <article class="finding">
+      <div class="finding-head"><span class="finding-n">5</span>
+        <h3>Experience with ChatGPT did not improve judgment about its limits</h3></div>
+      <p class="takeaway">Successful AI use did not make participants better judges of where the technology would
+        fail. After the experiment, treated workers were <strong>more confident that GPT-4 could solve problems
+        it actually cannot</strong> &mdash; and so less accurate than the control group.</p>
+      <figure class="chart-fig">
+        <img src="assets/charts/fig4_calibration.svg" width="720" height="520" loading="lazy"
+          alt="Dot-and-interval chart of the treatment effect on confidence that GPT-4 can answer each of seven questions. For all four questions GPT-4 cannot answer, treated workers were significantly more confident it could (effects of +5 to +10 points). For the questions it can answer, effects were mostly small and not significant.">
+        <figcaption>
+          <strong>Figure 4.</strong> Treatment effect on stated confidence (in percentage points) that GPT-4 can
+          answer each question, measured after the experiment. * marks statistically significant effects (p&nbsp;&lt;&nbsp;0.05).
+        </figcaption>
+      </figure>
+      <p class="narrow">
+        Before and after the experiment, workers estimated how likely GPT-4 was to answer each of several
+        problems correctly &mdash; this is <strong>forecasting accuracy</strong>, not a self-report of
+        confidence in themselves. After using and training with ChatGPT, treated participants were less
+        accurate than the control group at identifying which problems GPT-4 could solve reliably: for every
+        question the model <em>cannot</em> answer, they became significantly more sure that it could. This
+        analysis was exploratory and not pre-registered.
+      </p>
+      <details class="details-note">
+        <summary>Exact estimates for all seven questions</summary>
+        <div class="note-body">
+          <table class="data-table">
+            <caption>Treatment effect on confidence (0&ndash;100) that GPT-4 can answer; positive = more confident.</caption>
+            <thead><tr><th scope="col">Question</th><th scope="col">GPT-4</th><th scope="col">Effect (pp)</th><th scope="col">95% CI</th><th scope="col">p</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Rotating US flag in HTML/JS</th><td>can</td><td>+1.4</td><td>[&minus;2.5, 5.3]</td><td>0.48</td></tr>
+              <tr><th scope="row">Cities with even-numbered population</th><td>cannot</td><td>+6.0</td><td>[1.4, 10.6]</td><td>0.012</td></tr>
+              <tr><th scope="row">Split a $10 bill across items</th><td>cannot</td><td>+5.6</td><td>[0.8, 10.3]</td><td>0.024</td></tr>
+              <tr><th scope="row">Help with crossword clues</th><td>can</td><td>+6.3</td><td>[1.8, 10.7]</td><td>0.007</td></tr>
+              <tr><th scope="row">Multi-step Super Bowl lookup</th><td>can</td><td>+0.3</td><td>[&minus;4.3, 4.9]</td><td>0.90</td></tr>
+              <tr><th scope="row">Write &ldquo;hello&rdquo; as ASCII art</th><td>cannot</td><td>+9.6</td><td>[4.8, 14.5]</td><td>&lt;0.001</td></tr>
+              <tr><th scope="row">Best next move in tic-tac-toe</th><td>cannot</td><td>+5.4</td><td>[0.3, 10.4]</td><td>0.039</td></tr>
+            </tbody>
+          </table>
+          <p>Control-group base rates ran 65&ndash;78%. Because higher confidence on a &ldquo;cannot&rdquo;
+          question means <em>worse</em> calibration, the positive effects on those four questions indicate the
+          treated group misjudged the model&rsquo;s limits.</p>
+          <p class="src">Source: Paper Figure 4, Section 2.4 &amp; Appendix Table B8 (<code>writeup/callibration.tex</code>). Exploratory; not pre-registered.</p>
+        </div>
+      </details>
+    </article>
+  </div>
+</section>
+
+<!-- ================= IMPLICATIONS: WORKERS ================= -->
+<section id="workers" class="section section-alt" aria-labelledby="workers-h">
+  <div class="wrap">
+    <p class="kicker">Implications for Workers</p>
+    <h2 id="workers-h">Implications for Workers</h2>
+    <p class="section-intro narrow">Many readers of this study are consultants and other knowledge workers
+      weighing how to build new skills. Three ideas follow directly from the findings.</p>
+
+    <div class="impl-list">
+      <article class="impl">
+        <h3>Using AI to do new work is not the same as gaining a portable skill</h3>
+        <p>It is worth separating two outcomes: becoming more capable <em>while using</em> a particular tool,
+        and developing knowledge that stays useful <em>without</em> it. This study saw the first clearly and no
+        sign of the second in the short run. That does not make AI-enabled capability unimportant &mdash; it can
+        be genuinely valuable and productive. It is simply a different outcome from independent skill acquisition,
+        and worth naming as such when you plan your own development.</p>
+      </article>
+      <article class="impl">
+        <h3>Existing foundational knowledge still matters</h3>
+        <p>The treated workers who came closest to the expert benchmark were those who already had some coding
+        experience. In this setting, foundational knowledge and AI assistance appear to <strong>complement</strong>
+        one another. This is not a claim that formal coding education is always necessary &mdash; but a base of
+        relevant knowledge helped people get the most out of the tool.</p>
+      </article>
+      <article class="impl">
+        <h3>Knowing how to use AI does not guarantee knowing when it will fail</h3>
+        <p>Completing tasks successfully with ChatGPT did not make participants better at predicting where it
+        would break down &mdash; if anything, the opposite. Fluency with a tool and accurate judgment about its
+        limits are separate capabilities, and one does not automatically produce the other.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IMPLICATIONS: ORGANIZATIONS ================= -->
+<section id="organizations" class="section" aria-labelledby="orgs-h">
+  <div class="wrap">
+    <p class="kicker">Implications for Organizations</p>
+    <h2 id="orgs-h">Implications for Organizations</h2>
+    <p class="section-intro narrow lead-statement">
+      Organizations should specify what they expect an upskilling program to produce: improved performance
+      with AI, independent technical knowledge, or both.
+    </p>
+
+    <div class="impl-list">
+      <article class="impl">
+        <h3>AI-supported capability</h3>
+        <p>AI-supported capability may be valuable when employees will retain stable, approved access to the
+        tool and the relevant work can be performed using it. In the experiment, that capability was large and
+        real &mdash; consultants took on work normally reserved for data scientists.</p>
+      </article>
+      <article class="impl">
+        <h3>Independent capability</h3>
+        <p>Organizations should not infer independent technical knowledge solely from successful AI-assisted
+        task completion. That distinction matters most when workers must work without the tool, handle data
+        that cannot be shared with it, validate outputs on their own, or transfer their skills to another
+        technical environment. The experiment did not test each of these situations directly, but its central
+        result &mdash; capability with the tool did not become knowledge without it &mdash; bears on all of them.</p>
+      </article>
+      <article class="impl">
+        <h3>Judgment and oversight</h3>
+        <p>Successful task completion is not evidence that workers accurately understand the model&rsquo;s
+        limitations; here, the more experienced group misjudged them more. Where the cost of an undetected
+        error is high, it can help to evaluate <strong>task performance</strong> and <strong>judgment about the
+        model</strong> separately, and to keep someone with deeper expertise in the loop to review AI-assisted work.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IN THE MEDIA ================= -->
+<section id="media" class="section section-alt" aria-labelledby="media-h">
+  <div class="wrap">
+    <p class="kicker">In the Media</p>
+    <h2 id="media-h">Coverage &amp; commentary</h2>
+    <p class="section-intro narrow">Selected writing that discusses the study and its exoskeleton framing.
+      Each link opens on the publisher&rsquo;s site.</p>
+    <ul class="media-list">
+      <li class="media-card">
+        <a href="https://fortune.com/2024/10/04/artificial-intelligence-gen-ai-exoskeleton-workforce-performance/"
+           target="_blank" rel="noopener"
+           aria-label="Fortune: GenAI as an exoskeleton — How it expands your workforce's capabilities (opens in a new tab)">
+          <span class="media-outlet">Fortune</span>
+          <span class="media-title">GenAI as an &ldquo;exoskeleton&rdquo;: How it expands your workforce&rsquo;s capabilities</span>
+          <span class="media-meta">By François Candelon, Lisa Krayer, Daniel Sack, Emma Wiles &amp; Riccarda Joas · October 2024 <span aria-hidden="true">&#8599;</span></span>
+        </a>
+      </li>
+      <li class="media-card">
+        <a href="https://www.forbes.com/sites/juliadhar/2025/03/05/genais-exoskeleton-will-spark-a-new-era-of-productivity-and-talent-growth/"
+           target="_blank" rel="noopener"
+           aria-label="Forbes: GenAI's exoskeleton will spark a new era of productivity and talent growth (opens in a new tab)">
+          <span class="media-outlet">Forbes</span>
+          <span class="media-title">GenAI&rsquo;s &ldquo;Exoskeleton&rdquo; Will Spark a New Era of Productivity and Talent Growth</span>
+          <span class="media-meta">By Julia Dhar · March 2025 <span aria-hidden="true">&#8599;</span></span>
+        </a>
+      </li>
+      <li class="media-card">
+        <a href="https://forklightning.substack.com/p/using-generative-ai-to-learn-is-like"
+           target="_blank" rel="noopener"
+           aria-label="Forked Lightning: Using generative AI to learn is like Odysseus untying himself from the mast (opens in a new tab)">
+          <span class="media-outlet">Forked Lightning</span>
+          <span class="media-title">Using generative AI to learn is like Odysseus untying himself from the mast</span>
+          <span class="media-meta">By David Deming · January 2026 <span aria-hidden="true">&#8599;</span></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= ACADEMIC PAPER ================= -->
+<section id="paper" class="section section-paper" aria-labelledby="paper-h">
+  <div class="wrap narrow">
+    <p class="kicker">Academic Paper</p>
+    <h2 id="paper-h">Read the full study</h2>
+
+    <div class="paper-card">
+      <h3 class="paper-title">Generative AI and the Temporary Upskilling of Knowledge Workers</h3>
+      <p class="paper-authors">Emma Wiles, Lisa Krayer, Mohamed Abbadi, Urvi Awasthi, Ryan Kennedy,
+        Pamela Mishkin, Daniel Sack &amp; Francois Candelon</p>
+      <p class="paper-affils">
+        Boston University · BCG · OpenAI (Economic Impacts Research)
+      </p>
+      <p class="paper-status">Forthcoming in <em>Nature Human Behaviour</em>.</p>
+
+      <p class="paper-abstract">
+        Upskilling refers to workers acquiring and expanding their skills to perform different kinds of work as
+        demand changes. In a randomized controlled trial, BCG consultants were given access to and training in
+        ChatGPT to attempt data-science tasks outside their skill sets &mdash; tasks ChatGPT cannot solve on its
+        own. Treated workers scored higher than the control group on all three tasks, though we can reject that
+        they matched expert data scientists overall. We find no evidence that treated workers were better at
+        answering technical questions without ChatGPT afterward, suggesting their demonstrated capabilities did
+        not imply knowledge acquisition; treated workers also became more overconfident in ChatGPT&rsquo;s
+        abilities. The paper frames generative AI as a temporary &ldquo;exoskeleton&rdquo; that augments what
+        workers can do while it is in use.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://www.emmawiles.com/storage/reskill.pdf" target="_blank" rel="noopener">Download the paper (PDF)</a>
+        <a class="btn btn-secondary" href="https://github.com/emmawiles/Upskill_Public" target="_blank" rel="noopener">View the public repository</a>
+      </div>
+
+      <div class="citation">
+        <div class="citation-head">
+          <h4>Cite this work</h4>
+          <button type="button" class="copy-btn" data-copy-target="#citation-text" hidden>Copy citation</button>
+        </div>
+        <p id="citation-text" class="citation-text">
+          Wiles, E., Krayer, L., Abbadi, M., Awasthi, U., Kennedy, R., Mishkin, P., Sack, D., &amp; Candelon, F.
+          (forthcoming). <em>Generative AI and the Temporary Upskilling of Knowledge Workers.</em>
+          Nature Human Behaviour.
+        </p>
+        <p class="citation-note">Final publication year, volume, and DOI are pending; see the paper for the
+          authoritative citation.</p>
+      </div>
+
+      <p class="data-availability">
+        <strong>Data &amp; code.</strong> The analysis code is public in the
+        <a href="https://github.com/emmawiles/Upskill_Public">repository</a>. The underlying participant data
+        are available from the authors on request for non-commercial academic review, subject to a
+        data-usage agreement.
+      </p>
+      <p class="acks">
+        <strong>Acknowledgements.</strong> The authors thank BCG and the BCG Henderson Institute for
+        facilitating the experiment and the participant pool, the BCG data scientists who served as the
+        benchmark, and OpenAI&rsquo;s Economic Impacts Research team for collaboration on task design.
+        <strong>Competing interests:</strong> several authors are or were employees of BCG or OpenAI; E. Wiles
+        was a paid BCG consultant during the experiment.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-thesis">AI can temporarily expand workers&rsquo; capabilities, but using AI to perform new
+      tasks is not the same thing as learning the underlying skills.</p>
+    <p class="footer-scope">
+      About the evidence: this experiment involved consultants at one global management-consulting firm,
+      studied three specifically designed data-science tasks, combined ChatGPT access with a short training,
+      and measured unaided knowledge immediately afterward. It does not test whether other AI-based learning
+      or training programs could produce durable skills, and it does not measure long-run effects.
+    </p>
+    <p class="footer-links">
+      <a href="https://www.emmawiles.com/storage/reskill.pdf">Paper (PDF)</a> ·
+      <a href="https://github.com/emmawiles/Upskill_Public">Repository</a> ·
+      <a href="#top">Back to top</a>
+    </p>
+    <p class="footer-fine">This site summarizes the research for a general audience. Where the summary and the
+      paper differ, the paper is authoritative.</p>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
